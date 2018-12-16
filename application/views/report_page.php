@@ -1,4 +1,4 @@
-
+﻿
 
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
@@ -882,7 +882,7 @@ $(document).ready(function(){
       $(".panel.panel-success").toggle(1000);
       $(".layer-toggle i").toggleClass("fa-chevron-right");
     });
-    var sankhu = new L.geoJson.ajax("http://app.naxa.com.np/geojson/Changunarayan_Ward.geojson", {
+    var sankhu = new L.geoJson.ajax("http://sankhu.dimpnepal.org/geojson/Shankharapur.geojson", {
 
       onEachFeature: function(feature,layer){
 

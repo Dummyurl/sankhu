@@ -522,13 +522,13 @@ if($disaster){
       <?php  } ?> -->
 
 
-       <td id="<?php echo $disaster['id'] ?>photodisaster" ><img src="<?php echo $disaster['photo']?>" height="50" width="50"></td>
+       <!-- <td id="<?php echo $disaster['id'] ?>photodisaster" ><img src="<?php echo $disaster['photo']?>" height="50" width="50"></td> -->
 
 
        <td id="<?php echo $disaster['id'] ?>namedisaster"><?php echo $disaster['name'] ?></td>
        <td id="<?php echo $disaster['id'] ?>organizationdisaster"><?php echo $disaster['organization'] ?></td>
        <td id="<?php echo $disaster['id'] ?>postdisaster"><?php echo $disaster['post'] ?></td>
-       <td id="<?php echo $disaster['id'] ?>adisasteressdisaster"><?php echo $disaster['adisasteress'] ?></td>
+       <td id="<?php echo $disaster['id'] ?>adisasteressdisaster"><?php echo $disaster['address'] ?></td>
        <td id="<?php echo $disaster['id'] ?>phone_nodisaster"><?php echo $disaster['phone_no'] ?></td>
        <td id="<?php echo $disaster['id'] ?>emaildisaster"><?php echo $disaster['email'] ?></td>
 
