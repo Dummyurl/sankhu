@@ -101,21 +101,19 @@
   .available{
     margin: 30px 0px;
   }
-
   .nav-sidebar ul li{
-    padding: 0;
-    }
+  padding: 0;
+  }
 
-    .nav-sidebar ul li a{
-    display: block;
-    padding: .75rem 1.25rem;
-    }
+  .nav-sidebar ul li a{
+  display: block;
+  padding: .75rem 1.25rem;
+  }
 
-    .nav-sidebar ul li a.active{
-    background: rgba(32,87,175,.9);
-    color: #FFF;
-    }
-
+  .nav-sidebar ul li a.active{
+  background: rgba(32,87,175,.9);
+  color: #FFF;
+  }
 </style>
 <div class="available">
 <div class="container">
@@ -124,27 +122,27 @@
    <div class="col-md-3">
      <div class="upalab">
       <div class="card">
-        <div class="card-header bg-primary" style="color:#fff;">
+        <!-- <div class="card-header bg-primary" style="color:#fff;">
           <h6>उपलब्ध उद्धार सामग्री</h6>
-        </div>
+        </div> -->
         <nav class="nav-sidebar">
           <ul class="list-group list-group-flush nav tabs">
-            <li  class="list-group-item"><a href="#tab1" data-toggle="tab"> खाद्य सामग्री
+            <li  class="list-group-item "><a href="#tab1" data-toggle="tab" class="active"> खाद्य सामग्री 
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab2" data-toggle="tab">गैरखाद्ध्य सामग्री
+            <li class="list-group-item"><a  href="#tab2" data-toggle="tab">गैरखाद्ध्य सामग्री 
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a href="#tab3" data-toggle="tab">खोज तथा उद्धार सामग्री
+            <li class="list-group-item"><a href="#tab3" data-toggle="tab">खोज तथा उद्धार सामग्री 
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab4" data-toggle="tab" href="#">खाद्य सामग्री
+            <li class="list-group-item"><a  href="#tab4" data-toggle="tab" href="#">खाद्य सामग्री 
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab5" data-toggle="tab" href="#">गैरखाद्ध्य सामग्री
+            <li class="list-group-item"><a  href="#tab5" data-toggle="tab" href="#">गैरखाद्ध्य सामग्री 
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab6" data-toggle="tab" href="#">खोज तथा उद्धार सामग्री
+            <li class="list-group-item"><a  href="#tab6" data-toggle="tab" href="#">खोज तथा उद्धार सामग्री 
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
           </ul>
@@ -154,7 +152,7 @@
       </div>
       <div class="col-md-9">
         <div class="tab-content">
-          <div class="tab-pane active" id="tab1">
+          <div class="tab-pane show active" id="tab1">
             <div id="map-table-jana">
               <div class="row">
                 <div class="col-md-12" style="background: #1f5cb2; color: #fff;">
@@ -244,24 +242,24 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                     <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                      <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -308,24 +306,24 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                      <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -373,23 +371,24 @@
                   <tbody>
                     <tr>
                       <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                      <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -436,24 +435,24 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                      <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -500,24 +499,24 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                      <tr>
-                      <td>1</td>
-                      <td>रबर बुट</td>
-                      <td>स प्र बल ज्वालामाइ गण<br>राप्ती गाउपलिका </td>
-                      <td>जय बहादुर खड्का </td>
-                       <td>30</td>
-                      <td>30</td>
-                      <td>9851272051</td>
-                      <td>काठमाडौं</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td> </td>
+                       <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -544,3 +543,5 @@
     </div>
   </div>
 </div>
+
+

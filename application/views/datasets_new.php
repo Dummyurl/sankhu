@@ -162,7 +162,7 @@
 		                <select class="form-control" id="categoryGet">
 		                	<option value="">-------Select Category--------</option>
 		                	<?php foreach ($data_panel as $key => $cat) { ?>
-								<option value="<?php echo $cat['category_table']; ?>"><?php echo $cat['category_name']; ?></option>
+								<option data-id="<?php echo $cat['category_name']; ?>" value="<?php echo $cat['category_table']; ?>" <?php if($cat['category_table'] ==$this->input->get('tbl')) echo "SELECTED=SELECTED"; ?>><?php echo $cat['category_name']; ?></option>
 							<?php } ?>
 		                </select>
 	                </div>
@@ -174,7 +174,7 @@
 			        <div class="col-md-12">
 			          <div class="p-4">
 			            <div class="row">
-			                  <div class="col-md-9"><h4 class="text-uppercase m-0"><strong><?php echo $name ?></strong></h4></div>
+			                  <div class="col-md-9"><h4 class="text-uppercase m-0"><strong class="keywords"></strong></h4></div>
 			                  <div class="col-md-3 clearfix">
 			                  </div>
 			            </div>
@@ -232,10 +232,13 @@
 </div>
 <script>
 	$(document).ready( function  () {
+		var txt = $('#categoryGet :selected').text();
+		$(".keywords").html(txt);
 	    $('#categoryGet').on('change',function () {
 	        var $this = $(this);
 	        var keywords = $('#categoryGet').val();
-	         $(".keywords").html(keywords);
+	        var ntxt = $('#categoryGet :selected').text();
+	        $(".keywords").html(ntxt);
 	        if(keywords == '') {
 	            return false;
 	        }   else {
@@ -245,56 +248,3 @@
 	    })
 	});
 </script>
-<!-- <script type="text/javascript">
-	function myFunction() {
-		// Declare variables
-		var input, filter, div, h6, a, i;
-		input = document.getElementById('myInput');
-		filter = input.value.toUpperCase();
-		div = document.getElementsByClassName("myUL");
-		h6 = document.getElementsByTagName('h6');
-		// Loop through all list items, and hide those who don't match the search query
-		for (i = 0; i < h6.length; i++) {
-		    // a = h6[i].getElementsByTagName("a")[0];
-
-		    if (h6[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-
-		        $("#"+h6[i].id).parent().parent().css('display','');
-		    } else {
-
-		        $("#"+h6[i].id).parent().parent().css('display','none');
-		    }
-		}
-	}
-$('#categoryGet').change(function(){
-	var category = $(this).val();
-	$.ajax({
-  		type: "GET",
-  		//  data: name,
-  		url:  "MapController/view_table?cat="+category,
-  		beforeSend: function() {
-      		$('#filter_categories').empty();
-      		$('#filter_categories').html('<h2>Please Wait Table Loading ..... </h2>');
-  		},
-  		complete: function() {
-    	// $('#filter_pub').empty();
-    	// $('#filter_pub').append('<h2>Loading</h2>');
-    	},
-  		success: function (result) {
-    		$('#filter_categories').html('');
-	        var data = JSON.parse(result);
-	  		console.log(data.length);
-			//console.log (data[0].summary);
-	  		var i;
-	  		for(i=0; i<data.length; i++){
-	      		var div_pub = "";
-	    		console.log(data.length);
-         		div_pub +='<td>'+data[i].title+'';
-				div_pub +='</td>';
-				$('#filter_categories').append(div_pub);
-				console.log(div_pub);
-			}
-	    }
-	})
-});
-</script> -->
