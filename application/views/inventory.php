@@ -101,6 +101,21 @@
   .available{
     margin: 30px 0px;
   }
+
+  .nav-sidebar ul li{
+    padding: 0;
+    }
+
+    .nav-sidebar ul li a{
+    display: block;
+    padding: .75rem 1.25rem;
+    }
+
+    .nav-sidebar ul li a.active{
+    background: rgba(32,87,175,.9);
+    color: #FFF;
+    }
+
 </style>
 <div class="available">
 <div class="container">
@@ -114,22 +129,22 @@
         </div>
         <nav class="nav-sidebar">
           <ul class="list-group list-group-flush nav tabs">
-            <li  class="list-group-item"><a href="#tab1" data-toggle="tab"> खाद्य सामग्री 
+            <li  class="list-group-item"><a href="#tab1" data-toggle="tab"> खाद्य सामग्री
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab2" data-toggle="tab">गैरखाद्ध्य सामग्री 
+            <li class="list-group-item"><a  href="#tab2" data-toggle="tab">गैरखाद्ध्य सामग्री
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a href="#tab3" data-toggle="tab">खोज तथा उद्धार सामग्री 
+            <li class="list-group-item"><a href="#tab3" data-toggle="tab">खोज तथा उद्धार सामग्री
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab4" data-toggle="tab" href="#">खाद्य सामग्री 
+            <li class="list-group-item"><a  href="#tab4" data-toggle="tab" href="#">खाद्य सामग्री
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab5" data-toggle="tab" href="#">गैरखाद्ध्य सामग्री 
+            <li class="list-group-item"><a  href="#tab5" data-toggle="tab" href="#">गैरखाद्ध्य सामग्री
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
-            <li class="list-group-item"><a  href="#tab6" data-toggle="tab" href="#">खोज तथा उद्धार सामग्री 
+            <li class="list-group-item"><a  href="#tab6" data-toggle="tab" href="#">खोज तथा उद्धार सामग्री
               <!-- <span class="badge badge-primary badge-pill pull-right">14</span> -->
             </a></li>
           </ul>
@@ -529,5 +544,3 @@
     </div>
   </div>
 </div>
-
-

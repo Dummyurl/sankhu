@@ -1,4 +1,4 @@
-﻿
+
 
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
@@ -690,15 +690,16 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
                 <div class="panel-content padding">
                   <div id="bar_graph" style="display:block;" >
                     <div class="holders">
-                      <h6 class="clearfix"><strong class="pull-left">Wards</strong>  <span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="Exposure Data">?</span></h6>
+                      <h6 class="clearfix"><strong class="pull-left">Wards</strong>  <span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="No. of reports per ward
+">?</span></h6>
                       <div id="graphic"></div>
                     </div>
                     <div class="holders">
-                      <h6 class="clearfix"><strong>Incident Type</strong class="pull-left"><span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="Exposure Data">?</span></h6>
+                      <h6 class="clearfix"><strong>Incident Type</strong class="pull-left"><span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="No. of reports per incident type">?</span></h6>
                       <div id="graphic1"></div>
                     </div>
                     <div class="holders">
-                      <h6 class="clearfix"><strong>Report status</strong class="pull-left"><span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="Exposure Data">?</span></h6>
+                      <h6 class="clearfix"><strong>Report status</strong class="pull-left"><span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="No. of reports per report status">?</span></h6>
                       <div id="graphic2"></div>
                     </div>
                   </div>
@@ -882,7 +883,7 @@ $(document).ready(function(){
       $(".panel.panel-success").toggle(1000);
       $(".layer-toggle i").toggleClass("fa-chevron-right");
     });
-    var sankhu = new L.geoJson.ajax("http://sankhu.dimpnepal.org/geojson/Shankharapur.geojson", {
+    var sankhu = new L.geoJson.ajax("http://localhost/vso/geojson/Changunarayan.geojson", {
 
       onEachFeature: function(feature,layer){
 
@@ -922,8 +923,10 @@ $(document).ready(function(){
         return marker;
 
       },
+
       onEachFeature: function(feature, layer) {
-        layer.bindPopup(feature.properties.type);
+        console.log(feature.properties.incident_type);
+        layer.bindPopup(feature.properties.incident_type);
         //feature.properties.layer_name = "transit_stops";
 
       }

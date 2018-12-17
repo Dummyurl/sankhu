@@ -70,8 +70,6 @@
       $(".banner-item>img").remove();
     });
   </script>
-
-
   <!-- div is created to keep the map in its certain area whichever amount of area is located to display the map -->
 <style type="text/css">
   .scrolling-wrap{
@@ -130,10 +128,16 @@
               <div class="container">
                 <a class="navbar-brand" href="<?php echo base_url();?>">
                   <div class="logo-gov clearfix">
+                    <?php if(SITE_SLOGAN_EN): ?>
                     <img src="<?php echo SITE_SLOGAN_EN ?>" alt="Logo">
+                    <?php endif; ?>
                     <h6>
+                    <?php if(SITE_NAME_EN): ?>
                       <strong><?php echo SITE_NAME_EN ?></strong>
+                    <?php endif; if(SITE_TEXT_EN): ?>
                      <div class="sub-head"> <small><?php echo SITE_TEXT_EN ?></small> </div>
+                   <?php endif; ?>
+                     <!-- <strong>Page Speed <?php echo $this->benchmark->elapsed_time(); ?></strong> -->
                     </h6>
                   </div>
                 </a>
@@ -164,23 +168,6 @@
                     <li class="nav-item <?php if($this->uri->segment(1) == 'publication') { echo "active"; } ?>">
                      <a class="nav-link" href="<?php echo base_url()?>publication"><?php echo NAV_SIX ?></a>
                     </li>
-
-                      <!-- <li class="nav-item">
-                     <a class="nav-link" href="<?php echo base_url()?>about">About</a>
-                    </li> -->
-                    <!-- <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="la la-language"></i> : ने
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">अङ्रेजी</a>
-                      </div>
-                    </li> -->
-                    <!-- <li class="nav-item" > -->
-                      <!-- <ul class="lang-switcher">
-                        <a href="#" class="is-active">En</a> | <a href="#">Fr</a>
-
-                      </ul> -->
                       <?php
                       if($this->session->userdata('Language')==NULL){
 
@@ -210,9 +197,6 @@
                       </div>
                       </li>
                     <?php } ?>
-                  <!-- </li> -->
-
-
                   </ul>
                 </div>
 

@@ -111,7 +111,7 @@ $route['ghatana_delete'] ='Admin/GhatanaController/ghatana_delete';
 
 // Admin routes
 
-$route['admin'] = 'Admin/LoginController';
+$route['admin_control'] = 'Admin/LoginController';
 $route['logout'] = 'Admin/LoginController/logout';
 
 $route['feature'] = 'Admin/FeatureDataset/feature';

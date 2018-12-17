@@ -1028,7 +1028,7 @@ $("#right-panel-toggle").height(vph - 11);
           <ul class="nav nav-tabs" role="tablist">
             <li class="basemap chevron1" id="close-panel-left"><img src="<?php echo base_url()?>assets/img/up-arrow.png" class="test-icon chevron"></li>
             <li role="presentation" class="basemap"><a href="<?php echo base_url()?>map_download"><img src="<?php echo base_url()?>assets/img/map-down.png" class="test-icon">&nbsp;<sub class="text-light" style="font-size: 13px;"><?php echo $site_info['download']?> <?php echo $site_info['map']?></sub></a></li>
-            <li role="presentation" class="basemap"><a href="<?php echo base_url('view_table')?>" ><sub class="text-light" style="font-size: 13px;">Datasets</sub></a></li>
+            <li role="presentation" class="basemap"><a href="<?php echo base_url('view_table').'?tbl='.$this->body['cat_tbl_data'][0]['category_table']?>" ><sub class="text-light" style="font-size: 13px;">Datasets</sub></a></li>
           </ul>
         </div>
       </div>

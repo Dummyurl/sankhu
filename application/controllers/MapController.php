@@ -311,14 +311,15 @@
         if($lang['Language']=='en'){
 
           $cat_tbl=$this->Map_model->get_layer_all_en('categories_tbl');
+          $this->body['cat_tbl_data'] =$this->general->get_tbl_data_result('category_table','categories_tbl',array('language'=>'en'));
 
         }else{
 
           $cat_tbl=$this->Map_model->get_layer_all_nep('categories_tbl');
-
+          $this->body['cat_tbl_data'] =$this->general->get_tbl_data_result('category_table','categories_tbl',array('language'=>'nep'));
 
         }
-
+        //echo "<pre>";print_r($cat_tbl);die;
 
         //language
 

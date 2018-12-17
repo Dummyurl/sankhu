@@ -52,7 +52,7 @@ public function index() {
 
 
       $this->session->set_flashdata('Login', 'Incorrect Password, Try Again');
-      redirect('admin');
+      redirect('admin_control');
        }
 
 
@@ -60,7 +60,7 @@ public function index() {
 
 
     $this->session->set_flashdata('Login', 'Incorrect username, Try Again');
-    redirect('admin');
+    redirect('admin_control');
     }
 
  }
@@ -79,7 +79,7 @@ public function logout(){
 
    $this->session->unset_userdata($newdata);
    $this->session->sess_destroy();
-   redirect('admin', 'refresh');
+   redirect('admin_control', 'refresh');
 
 }
 
