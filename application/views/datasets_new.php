@@ -150,6 +150,11 @@
        transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
        transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
    }
+
+
+.select_d {
+    margin-top: 21px;
+}
 </style>
 <div class="datset-page">
 	<div class="container">
@@ -158,7 +163,7 @@
             	<?php if($data_panel): ?>
             	<form action="<?php echo base_url('view_table') ?>">
 	                <div class="form-group">
-	                	<label for="SelectData">Select Data</label>
+	                	<h5 align="center" class="select_d">Select Data</h5>
 		                <select class="form-control" id="categoryGet">
 		                	<option value="">-------Select Category--------</option>
 		                	<?php foreach ($data_panel as $key => $cat) { ?>
@@ -243,7 +248,7 @@
 	            return false;
 	        }   else {
 	            var url = $this.closest('form').attr('action');
-	            location.href=url + '?tbl=' + keywords; 
+	            location.href=url + '?tbl=' + keywords;
 	        }
 	    })
 	});
