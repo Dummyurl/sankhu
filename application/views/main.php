@@ -208,7 +208,7 @@ if($baseline_data){
             <?php if ($feature['photo']): ?>
               <img src="<?php echo $feature['photo'] ?>" alt="विशेष डाटासेट">
             <?php endif; ?>
-            <h3><a href="#" title=""><?php echo $feature['nepali_title'] ?></a></h3>
+            <h3><?php echo $feature['nepali_title'] ?></h3>
             <p>
             <?php echo !empty($feature['nepali_summary'])?$feature['nepali_summary']:'' ?>
             </p>
