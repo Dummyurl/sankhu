@@ -109,8 +109,9 @@
                 <div class="fbox">
                   <h4><?php echo !empty(IMP_LINK)?IMP_LINK:'' ?></h4>
                   <ul class="list-group">
-                    <li><i class="la la-caret-right"></i><a href="<?php echo !empty(LINK_ONE)?LINK_ONE:'' ?>" target="_blank"><?php echo !empty(TWO_NAME)?TWO_NAME:'' ?></a></li>
+                    <li><i class="la la-caret-right"></i><a href="<?php echo !empty(LINK_ONE)?LINK_ONE:'' ?>" target="_blank"><?php echo !empty(ONE_NAME)?ONE_NAME:'' ?></a></li>
                     <li><i class="la la-caret-right"></i><a href="<?php echo !empty(LINK_TWO)?LINK_TWO:'' ?>" target="_blank"><?php echo !empty(TWO_NAME)?TWO_NAME:'' ?></a></li>
+                    <li><i class="la la-caret-right"></i><a href="<?php echo !empty(LINK_THREE)?LINK_THREE:'' ?>" target="_blank"><?php echo !empty(NAME_THREE)?NAME_THREE:'' ?></a></li>
                   </ul>
                 </div>
               </div>
@@ -132,10 +133,10 @@
 
                 <?php if(FACEBOOK): ?>
                   <a href="<?php echo FACEBOOK ?>" title=""><i class="fa fa-facebook"></i></a>
-                <?php endif; 
+                <?php endif;
                  if(TWITTER): ?>
                   <a href="<?php echo TWITTER ?>" title=""><i class="fa fa-twitter"></i></a>
-                <?php endif; 
+                <?php endif;
                   if(GOOGLE): ?>
                   <a href="<?php echo GOOGLE ?>" title=""><i class="fa fa-google-plus"></i></a>
                 <?php endif; ?>
@@ -169,6 +170,10 @@
       $(document).ready(function() {
         $('#hydropower').DataTable({
            dom: 'Bfrtip',
+           scrollY: true,
+     scroller: {
+       rowHeight: 20
+   }
 
 
 

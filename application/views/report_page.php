@@ -502,7 +502,7 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
                       <p class="small">
                         <?php echo $data['message'] ;?>
                         <!-- readmore -->
-                        <a  class="naya" data-toggle="modal" data-target=".<?php echo $data['id'] ;?>_">Read More</a>
+                        <a  class="naya" data-toggle="modal" data-target=".<?php echo $data['id'] ;?>_">See More</a>
 
                         <div class="modal fade <?php echo $data['id'] ;?>_" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                           <div class="modal-dialog modal-lg">

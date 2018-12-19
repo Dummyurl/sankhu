@@ -4,26 +4,25 @@
           window.onresize = function(event) {
                bannerHeight();
            }
-
-            function bannerHeight() {
-                vph = $(window).height();
-                headerHeight = $("#website-header").height();
-                vph = vph - headerHeight;
-                $("#banner").height(vph);
-                vph = (vph - $(".banner-item").height())/2;
-                $(".banner-item").css('padding-top', vph);
-                $(".banner-item").css('padding-bottom', vph);
-            }
+        function bannerHeight() {
+            vph = $(window).height();
+            headerHeight = $("#website-header").height();
+            vph = vph - headerHeight;
+            $("#banner").height(vph);
+            vph = (vph - $(".banner-item").height())/2;
+            $(".banner-item").css('padding-top', vph);
+            $(".banner-item").css('padding-bottom', vph);
+        }
    });
 </script>
 <div id="banner">
   <div class="banner-item">
-          <img src="<?php echo COVER_POHOTO_EN ?>" class="banner-img">
+          <img src="<?php echo !empty(COVER_POHOTO_EN)?COVER_POHOTO_EN:''; ?>" class="banner-img">
           <div class="container clearfix">
             <div class="banner-caption text-center mb-4">
-              <h2><strong><?php echo COVER_BIG ?></strong></h2>
+              <h2><strong><?php echo !empty(COVER_BIG)?COVER_BIG:'' ?></strong></h2>
               <p>
-                <?php echo COVER_SMALL_EN ?>
+                <?php echo !empty(COVER_SMALL_EN)?COVER_SMALL_EN:'' ?>
               </p>
             </div>
             <div class="row justify-content-center">
@@ -31,33 +30,33 @@
                 <div class="disaster-summary-item" data-mh="summary-item">
                   <img src="<?php echo base_url()?>assets/icon/floods1.png" height="64">
                   <h6><?php echo FLOOD ?></h6>
-                  <h4><?php echo $report_inci['Flood']?></h4>
+                  <h4><?php echo !empty($report_inci['Flood'])?$report_inci['Flood']:'0'?></h4>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="disaster-summary-item" data-mh="summary-item">
                     <img src="<?php echo base_url()?>assets/icon/fire1.png" height="64">
                   <h6><?php echo FIRE ?></h6>
-                  <h4><?php echo $report_inci['Fire']?></h4>
+                  <h4><?php echo !empty($report_inci['Fire'])?$report_inci['Fire']:'0'?></h4>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="disaster-summary-item" data-mh="summary-item">
                     <img src="<?php echo base_url()?>assets/icon/landslide1.png" height="64">
                   <h6><?php echo LANDSLIDE ?></h6>
-                  <h4><?php echo $report_inci['Landslide']?></h4>
+                  <h4><?php echo !empty($report_inci['Landslide'])?$report_inci['Landslide']:'0'?></h4>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="disaster-summary-item" data-mh="summary-item">
-                    <img src="<?php echo base_url()?>assets/icon/lightning1.png" height="64">
-                  <h6><?php echo LIGHTNING ?></h6>
-                  <h4><?php echo $report_inci['Lightning']?></h4>
+                    <img src="<?php echo base_url()?>assets/icon/road.png" height="64">
+                  <h6><?php echo ROAD ?></h6>
+                  <h4><?php echo !empty($report_inci['Road'])?$report_inci['Road']:'0'?></h4>
                 </div>
               </div>
               <div class="col-md-2">
                 <a href="<?php echo base_url() ?>report_page" class="disaster-summary-item" data-mh="summary-item">
-                  <p><?php echo MORE ?> +</p>
+                  <p><?php echo !empty(MORE)?MORE:'' ?> +</p>
                 </a>
               </div>
             </div>
@@ -69,12 +68,12 @@
             <div class="row justify-content-md-center">
               <div class="col-md-6">
                 <div class="search-wrap text-center">
-                  <h3 class="mb-3"><?php echo SEARCH_DATASET ?><strong></strong></h3>
+                  <h3 class="mb-3"><?php echo !empty(SEARCH_DATASET)?SEARCH_DATASET:'' ?><strong></strong></h3>
                   <form method="POST" action="<?php echo base_url()?>datasets">
                     <div class="input-group input-group-lg">
-                  <input type="text" class="form-control" name="search" placeholder="<?php echo SEARCH ?>" aria-label="Keywords" aria-describedby="basic-addon2">
+                  <input type="text" class="form-control" name="search" placeholder="<?php echo !empty(SEARCH)?SEARCH:'' ?>" aria-label="Keywords" aria-describedby="basic-addon2">
                   <div class="input-group-append">
-                    <button class="btn btn-secondary" name="submit_search" type="submit"><?php echo SEARCH ?></button>
+                    <button class="btn btn-secondary" name="submit_search" type="submit"><?php echo !empty(SEARCH)?SEARCH:'' ?></button>
                   </div>
                 </div>
                   </form>
@@ -88,15 +87,21 @@
 
 
         <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <?php if(CAT_ONE): ?>
           <li class="nav-item">
             <a class="nav-link active" id="hazard-tab" data-toggle="tab" href="#hazard" role="tab" aria-controls="hazard" aria-selected="true"><?php echo CAT_ONE ?></a>
           </li>
+        <?php endif;
+        if(CAT_TWO): ?>
           <li class="nav-item">
             <a class="nav-link" id="exposure-tab" data-toggle="tab" href="#exposure" role="tab" aria-controls="exposure" aria-selected="false"><?php echo CAT_TWO ?></a>
           </li>
+       <?php endif;
+        if(CAT_THREE): ?>
           <li class="nav-item">
             <a class="nav-link" id="baseline-tab" data-toggle="tab" href="#baseline" role="tab" aria-controls="baseline" aria-selected="false"><?php echo CAT_THREE ?></a>
           </li>
+        <?php endif; ?>
         </ul>
         <div class="tab-content scrolling-wrap" style="height: 280px;" id="myTabContent">
           <div class="tab-pane fade show active" id="hazard" role="tabpanel" aria-labelledby="hazard-tab">
@@ -121,13 +126,13 @@
                       ?></span>
                   </a>
                 </li>
-            <?php }} ?>
+            <?php } } ?>
           </ul>
             </div>
           </div>
           <div class="tab-pane fade" id="exposure" role="tabpanel" aria-labelledby="exposure-tab">
 <ul class="row">
-    <?php
+  <?php
     if($hazard_data) {
     foreach($hazard_data as $data){ ?>
             <li class="col-md-3 col-lg-2">
@@ -178,9 +183,9 @@ if($baseline_data){
         </div>
 
       </div>
-        </div>
+    </div>
         <?php if($feat_lang=='en'){ ?>
-<a href="category?tbl=<?php echo $feature['table'] ?>">
+<a href="category?tbl=<?php echo $feature['table'] ?> && name=<?php echo $feature['title'] ?>">
     <div class="bg-white feature-section">
       <div class="container">
         <div class="featured-post clearfix">
@@ -195,44 +200,39 @@ if($baseline_data){
     </div>
 </a>
 <?php }else{ ?>
-  <a href="category?tbl=<?php echo $feature['table'] ?>">
+  <a href="category?tbl=<?php echo $feature['table'] ?>&& name=<?php echo $feature['nepali_title'] ?>">
       <div class="bg-white feature-section">
         <div class="container">
           <div class="featured-post clearfix">
             <h5 class="post-ribbon">विशेष डाटासेट</h5>
-            <img src="<?php echo $feature['photo'] ?>" alt="">
+            <?php if ($feature['photo']): ?>
+              <img src="<?php echo $feature['photo'] ?>" alt="विशेष डाटासेट">
+            <?php endif; ?>
             <h3><a href="#" title=""><?php echo $feature['nepali_title'] ?></a></h3>
             <p>
-            <?php echo $feature['nepali_summary'] ?>
+            <?php echo !empty($feature['nepali_summary'])?$feature['nepali_summary']:'' ?>
             </p>
-            <!-- <a href="#" title="" class="btn btn-primary">पुरा पढ्नुहोस्</a> -->
           </div>
         </div>
       </div>
   </a>
 <?php } ?>
-    <script type="text/javascript">
-$("#started").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#nextDiv").offset().top
-    }, 1000);
-});
-
-$(document).ready(function(){
-  if ($.fn.niceScroll) {
-
-
-      $(".scrolling-wrap").niceScroll({
-          cursorcolor: "#2057af",
-          cursorborder: "0px solid #fff",
-          cursorborderradius: "0px",
-          cursorwidth: "8px"
-      });
-
-      $(".scrolling-wrap").getNiceScroll().resize();
-      $(".scrolling-wrap").getNiceScroll().show();
-
-  }
-});
-
-    </script>
+<script type="text/javascript">
+  $("#started").click(function() {
+      $('html, body').animate({
+          scrollTop: $("#nextDiv").offset().top
+      }, 1000);
+  });
+  $(document).ready(function(){
+    if ($.fn.niceScroll) {
+        $(".scrolling-wrap").niceScroll({
+            cursorcolor: "#2057af",
+            cursorborder: "0px solid #fff",
+            cursorborderradius: "0px",
+            cursorwidth: "8px"
+        });
+        $(".scrolling-wrap").getNiceScroll().resize();
+        $(".scrolling-wrap").getNiceScroll().show();
+    }
+  });
+</script>

@@ -61,7 +61,7 @@ class General {
 		define('SUBSCRIBE_BTN', $site_info['subscribe_btn']);
 		define('COPY_DATE', $site_info['copy_date']);
 		define('TWO_NAME', $site_info['2_name']);
-		define('ONE_NAME', $site_info['1_name']);		
+		define('ONE_NAME', $site_info['1_name']);
 		define('IMP_LINK', $site_info['imp_link']);
 		define('EMAIL', $site_info['email']);
 		define('SUBSCRIBE', $site_info['subscribe']);
@@ -79,6 +79,7 @@ class General {
 		define('FIRE', $site_info['fire']);
 		define('LANDSLIDE', $site_info['landslide']);
 		define('LIGHTNING', $site_info['lightning']);
+		define('ROAD', $site_info['road']);
 		define('MORE', $site_info['more']);
 		define('SEARCH_DATASET', $site_info['search_dataset']);
 		define('SEARCH', $site_info['search']);
@@ -104,7 +105,7 @@ class General {
 		define('PUBL_TYPE', $site_info['publ_type']);
 		define('INCIDENT_DETAIL', "incident_detail");
 
-		
+
 
 
 
