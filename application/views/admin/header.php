@@ -70,7 +70,7 @@
 <div class="brand">
 
     <a href="<?php echo base_url()?>dashboard"  class="logo">
-        <img src="<?php echo base_url()?>assets/img/changu.png" alt="admin" height=60;><div class="cnm">Changunarayan <br>Municipality </div>
+        <img src="http://shankharapurmun.gov.np/sites/shankharapurmun.gov.np/files/logo_0.png" alt="admin" height=60;><div class="cnm">Shankharapur <br>Municipality </div>
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
