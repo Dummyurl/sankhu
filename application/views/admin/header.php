@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -36,6 +36,9 @@
     <link href="<?php echo base_url();?>assets/admin/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/admin/css/style-responsive.css" rel="stylesheet" />
 
+    <link href="<?php echo base_url();?>assets/admin/css/element.css" rel="stylesheet">
+    <script src="<?php echo base_url();?>assets/admin/js/jquery-1.9.1.min.js"></script>
+    <script src="<?php echo base_url();?>assets/admin/js/jquery-ui-1.9.2.min.js"></script>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]>
     <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -67,7 +70,7 @@
 <div class="brand">
 
     <a href="<?php echo base_url()?>dashboard"  class="logo">
-        <img src="http://shankharapurmun.gov.np/sites/shankharapurmun.gov.np/files/logo_0.png" alt="admin" height=60;><div class="cnm">Shankharapur <br>Municipality </div>
+        <img src="<?php echo base_url()?>assets/img/changu.png" alt="admin" height=60;><div class="cnm">Changunarayan <br>Municipality </div>
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>

@@ -1,5 +1,60 @@
 <?php
 class Dash_model extends CI_Model {
+public $catList='';
+
+
+
+  public function getAllCategory($id = NULL, $level = 0, $first_call = true) {
+    $this->catList .=  $first_call == true ? '<ol class="sortable">' : '<ol>';
+    $call = $first_call == true ? false : false;
+    $id = isset($id) ? $id : 0;
+    $objectMenu=array();
+    $this->db->select('m.id,m.category_name,m.order_cat');
+    $this->db->from('categories_tbl m');
+    //$this->db->where('m.menu_parent',$id);
+    $this->db->order_by('m.order_cat','asc');
+    $query=$this->db->get();
+    if($query->num_rows()>0)
+    {
+      $objectMenu=$query->result();
+    }
+    foreach($objectMenu as $key => $tbl_value) :
+      $id = $tbl_value->id;
+      $menu_title = stripslashes($tbl_value->category_name);
+      $menu_order = $tbl_value->order_cat;
+      $this->catList .= '<li id="list_'.$id.'"><div><span class="disclose"><span></span></span>'.$menu_title.'</div>';
+      $this->catList .= '</li>';
+    endforeach;
+    $this->catList .=  '</ol>';
+    return $this->catList;
+  }
+
+  public function updateAllCategory(){
+    //print_r($_POST);
+
+    $list = $_POST['list'];
+    // an array to keep the sort order for each level based on the parent id as the key
+      $sort = array();
+    foreach ($list as $id => $parentId) :
+      /* a null value is set for parent id by nested sortable for root level elements
+              so you set it to 0 to work in your case (from what I could deduct from your code) */
+          $parentId = ($parentId === 'null') ? 0 : $parentId;
+      // init the sort order value to 1 if this element is on a new level
+          if (!array_key_exists($parentId, $sort))
+              $sort[$parentId] = 1;
+            $data=array(
+              'order_cat'=>$sort[$parentId],
+              );
+            $this->db->update('categories_tbl',$data,array('id'=>$id));
+         //echo $this->db->last_query();
+          //   echo"<br>";
+          // // increment the sort order for this level
+          $sort[$parentId]++;
+
+    endforeach;
+  }
+
+
 
 
 
@@ -168,7 +223,7 @@ return $res->result_array();
   public function get_tables_data($tbl){ //get data of table
 
     $this->db->select('*');
-  
+
     $this->db->order_by('id','ASC');
     $q=$this->db->get($tbl);
     return $q->result_array();

@@ -103,7 +103,7 @@
           </li>
         <?php endif; ?>
         </ul>
-        <div class="tab-content scrolling-wrap" style="height: 280px;" id="myTabContent">
+        <div class="tab-content scrolling-wrap" style="height: 390px;" id="myTabContent">
           <div class="tab-pane fade show active" id="hazard" role="tabpanel" aria-labelledby="hazard-tab">
             <div class="container-fluid">
               <ul class="row">

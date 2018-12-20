@@ -7,12 +7,12 @@ $lang['project_partners']="Project Partners";
 $lang['featured_datasets']="Featured Datasets";
 $lang['select_featured_datasets']="Select Featured Datasets";
 $lang['choose_featured_datasets']="Choose Featured Datasets";
-$lang['categories_management']="Categories Management";
-$lang['categories']="Categories";
-$lang['sub_categories']="Sub Categories";
+$lang['categories_management']="Map Management";
+$lang['categories']="Map Layer Management";
+$lang['sub_categories']="Sub Layer Management";
 
 //categories_tbl
-$lang['categories']="CATEGORIES";
+//$lang['categories']="Map";
 $lang['switch_language']="SWITCH LANGUAGE";
 $lang['add_category']="Add Category";
 $lang['view_in_map']="View in Map";

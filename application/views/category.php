@@ -102,7 +102,7 @@
 
   li.basemap {
     background-color: #0056b3;
-    height: 32px;
+    /* height: 40px; */
   }
 
   li.basemap img:hover {
@@ -250,7 +250,7 @@
     width: 250px;
   }
   #wrap { position: relative; }
-  #over_map { position: absolute; left: 0px; z-index: 6; top: 33px;width: 0px;}
+  #over_map { position: absolute; left: 0px; z-index: 6; top: 44px;width: 0px;}
 
   .icon-bar{
     background-color:#0056b3;
@@ -992,6 +992,48 @@
   font-size: 17px;
   margin-top: -4px;
   }
+
+  ul.nav.nav-tabs li.basemap a{
+display: inline-block;
+padding: 10px 15px;
+}
+ul.nav-tabs li.basemap.active{
+background: rgba(0,0,0,.3);
+
+}
+
+ul.nav.nav-tabs li.basemap a:hover{
+background: rgba(0,0,0,.2);
+color: #FFF;
+}
+
+ul.nav-tabs li.basemap.active a{
+color: #FFF;
+}
+
+
+li.basemap.chevron1 i{
+font-size: 22px;
+color: #FFF;
+}
+
+li.basemap.chevron1{
+padding: 10px;
+}
+
+#close-panel-right i{
+font-size: 24px;
+color: #FFF;
+}
+
+#close-panel-right{
+padding: 10px;
+}
+
+#close-panel-right:hover, #close-panel-left:hover{
+cursor: pointer;
+}
+
 </style>
 
 
@@ -1026,9 +1068,16 @@ $("#right-panel-toggle").height(vph - 11);
       <div class="col-md-6 no-padding col-sm-12">
         <div class="panel-heading">
           <ul class="nav nav-tabs" role="tablist">
-            <li class="basemap chevron1" id="close-panel-left"><img src="<?php echo base_url()?>assets/img/up-arrow.png" class="test-icon chevron"></li>
-            <li role="presentation" class="basemap"><a href="<?php echo base_url()?>map_download"><img src="<?php echo base_url()?>assets/img/map-down.png" class="test-icon">&nbsp;<sub class="text-light" style="font-size: 13px;"><?php echo $site_info['download']?> <?php echo $site_info['map']?></sub></a></li>
-            <li role="presentation" class="basemap"><a href="<?php echo base_url('view_table').'?tbl='.$this->body['cat_tbl_data'][0]['category_table']?>" ><sub class="text-light" style="font-size: 13px;">Datasets</sub></a></li>
+            <li class="basemap chevron1" id="close-panel-left">
+              <!-- <img src="<?php echo base_url()?>assets/img/up-arrow.png" class="test-icon chevron"> -->
+              <i class="la la-bars"></i>
+            </li>
+            <li role="presentation" class="basemap active"><a href="<?php echo base_url('view_table').'?tbl='.$this->body['cat_tbl_data'][0]['category_table']?>" ><span style="font-size: 16px;">Map</span></a></li>
+            <li role="presentation" class="basemap"><a href="<?php echo base_url('view_table').'?tbl='.$this->body['cat_tbl_data'][0]['category_table']?>" ><span  style="font-size: 16px;">Datasets</span></a></li>
+            <li role="presentation" class="basemap"><a href="<?php echo base_url()?>map_download">
+              <!-- <img src="<?php echo base_url()?>assets/img/map-down.png" class="test-icon"> -->
+              <span  style="font-size: 16px;"><?php echo $site_info['download']?> <?php echo $site_info['map']?></span></a></li>
+
           </ul>
         </div>
       </div>
@@ -1036,7 +1085,10 @@ $("#right-panel-toggle").height(vph - 11);
       <div class="col-md-6 no-padding col-sm-12" style="background: #0056b3">
         <div class="panel-heading right pull-right">
           <ul class="nav nav-tabs" role="tablist">
-            <li class=" basemap chevron2 navbar-right" id="close-panel-right"><img src="<?php echo base_url()?>assets/img/up-arrow.png" class="test-icon chevron"></li>
+            <li class=" basemap chevron2 navbar-right" id="close-panel-right">
+              <!-- <img src="<?php echo base_url()?>assets/img/up-arrow.png" class="test-icon chevron"> -->
+              <i class="la la-info-circle"></i>
+            </li>
           </ul>
         </div>
       </div>

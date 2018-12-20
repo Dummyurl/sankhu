@@ -388,6 +388,69 @@ button.btn.btn-light.btn-sm {
   background: rgba(0,0,0,.03);
 }
 
+/* tab css */
+ul.nav.nav-tabs li.basemap a{
+display: inline-block;
+padding: 10px 15px;
+color: #FFF;
+}
+ul.nav-tabs li.basemap.active{
+background: rgba(0,0,0,.3);
+
+}
+
+ul.nav.nav-tabs li.basemap a:hover{
+background: rgba(0,0,0,.2);
+color: #FFF !important;
+}
+
+ul.nav-tabs li.basemap.active a{
+color: #FFF;
+}
+
+
+li.basemap.chevron1 i{
+font-size: 22px;
+color: #FFF;
+}
+
+li.basemap.chevron1{
+padding: 10px;
+}
+
+#close-panel-right i{
+font-size: 24px;
+color: #FFF;
+}
+
+#close-panel-right{
+padding: 9px;
+}
+
+#close-panel-right:hover, #close-panel-left:hover{
+cursor: pointer;
+}
+
+ul.nav.nav-tabs {
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom-color: transparent;
+    /* margin-left: 10px; */
+    margin-top: 0px;
+    background: #0056b3;
+    border-bottom: none;
+}
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+ul.nav-tabs li.basemap{
+margin: 0;
+}
+
+
+
 </style>
 
 <!-- nepali / english -->
@@ -453,19 +516,51 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
 <!-- nepali / english -->
 
 <div id="conten-map">
-  <nav class="navbar navbar-expand-sm">
-    <ul class="navbar-nav">
+  <!-- <nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav"> -->
       <!-- <li class="nav-item active">
         <a class="nav-link" href="#"><i class="fa fa-map" aria-hidden="true"></i> <?php echo $site_info['map'] ?></a>
       </li> -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="map_reports"><i class="fa fa-database" aria-hidden="true"></i> <?php echo $site_info['data'] ?></a>
-      </li>
+      </li> -->
       <!-- <li class="nav-item">
         <a class="nav-link" href="map_reports_table"><i class="fa fa-pencil-square" aria-hidden="true"></i> <?php echo $site_info['ghatana_bib'] ?></a>
       </li> -->
-    </ul>
-  </nav>
+    <!-- </ul>
+  </nav> -->
+
+  <div class="container-fluid">
+    <div class="row">
+  <div class="col-md-6 no-padding col-sm-12">
+    <div class="panel-heading">
+      <ul class="nav nav-tabs" role="tablist">
+        <!-- <li class="basemap chevron1" id="close-panel-left">
+
+          <i class="la la-bars"></i>
+        </li> -->
+        <li role="presentation" class="basemap active "><a href="report_page" ><span style="font-size: 16px;">Map</span></a></li>
+        <li role="presentation" class="basemap"><a href="map_reports" ><span  style="font-size: 16px;">Data</span></a></li>
+        <!-- <li role="presentation" class="basemap active"><a href="<?php echo base_url()?>map_download"> -->
+          <!-- <img src="<?php echo base_url()?>assets/img/map-down.png" class="test-icon"> -->
+          <!-- <span  style="font-size: 16px;"><?php echo $site_info['download']?> <?php echo $site_info['map']?></span></a></li> -->
+
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6 no-padding col-sm-12" style="background: #0056b3">
+    <div class="panel-heading right pull-right">
+      <ul class="nav nav-tabs" role="tablist">
+        <!-- <li class=" basemap chevron2 navbar-right" id="close-panel-right">
+
+          <i class="la la-info-circle"></i>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+
+  </div>
+  </div>
 
   <div class="wrapper">
 

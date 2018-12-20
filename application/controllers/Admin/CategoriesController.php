@@ -696,7 +696,7 @@ class CategoriesController extends CI_Controller
                             $this->session->set_flashdata('msg','Note: The Shapefile Co-ordinate System Must Be In WGS84 ie. EPSG:4326 '.$cat_name);
                             redirect('add_layers?tbl_name='.$cat_table.'&& id='.$insert);
                         }
-                        
+
                     }else{
                         var_dump($insert);
                     }
@@ -923,5 +923,31 @@ if($update==1){
 
 
 }
+
+public function change_order_caegory()
+ {
+   $this->data = array();
+   $this->body['admin']=$this->session->userdata('user_type');
+   //admin check
+   $this->data['category']=$this->Dash_model->getAllCategory();
+   //echo "<pre>";print_r($this->data['category']);die;
+  //$this->body['categorytable'] = $this->general->get_tbl_data_result('order_cat,id,category_name','categories_tbl',false,'order_cat');
+   $this->load->view('admin/header',$this->body);
+   $this->load->view('admin/chnage_order',$this->data,$this->body);
+   $this->load->view('admin/footer');
+ }
+
+ public function ajax_change_order(){
+     if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+        $tran =  $this->Dash_model->updateAllCategory();
+         if($tran)
+         {
+           echo "Category Order has been updated Successfully";
+         }
+     }else{
+       echo "Cann't Update";
+       // $this->view->render('error/index');
+     }
+ }
 
 }//controller end
