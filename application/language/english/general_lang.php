@@ -7,8 +7,8 @@ $lang['project_partners']="Project Partners";
 $lang['featured_datasets']="Featured Datasets";
 $lang['select_featured_datasets']="Select Featured Datasets";
 $lang['choose_featured_datasets']="Choose Featured Datasets";
-$lang['categories_management']="Map Management";
-$lang['categories']="Map Layer Management";
+$lang['categories_management']="Map Categories Management";
+$lang['categories']="Map Categories";
 $lang['sub_categories']="Sub Layer Management";
 
 //categories_tbl
@@ -88,9 +88,13 @@ $lang['users']="USERS";
 $lang['data']="DATA";
 $lang['graph']="GRAPH";
 $lang['page_visited']="PAGE VISITED";
-$lang['home']="HOME";
-$lang['map']="MAP";
-$lang['reports']="REPORTS";
+$lang['home']="Home";
+$lang['map']="Map";
+$lang['reports']="Report";
+$lang['contacts']="Conatct";
+$lang['dataset']="Dataset";
+$lang['inventory']="Inventory";
+$lang['publication']="Publication";
 $lang['pages']="PAGES";
 $lang['most_visited']="MOST VISITED";
 $lang['search']="SEARCH";

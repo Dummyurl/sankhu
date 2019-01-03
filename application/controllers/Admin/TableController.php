@@ -253,7 +253,7 @@ class TableController extends CI_Controller
 
       $this->Dash_model->create_geom($long,$lat,$tbl_name);
       //$data=$this->Dash_model->get();
-      redirect('manage_popup?tbl='.$tbl_name);
+      redirect('manage_column_control?tbl='.$tbl_name);
 
 
 

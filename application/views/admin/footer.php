@@ -1,7 +1,7 @@
 </section>
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
-<script src="<?php echo base_url();?>assets/admin/js/jquery-1.10.2.min.js"></script>
+<!-- <script src="<?php echo base_url();?>assets/admin/js/jquery-1.10.2.min.js"></script> -->
 <script src="<?php echo base_url();?>assets/admin/js/jquery-migrate.js"></script>
 <!-- <script src="<?php echo base_url();?>assets/admin/js/jquery.js"></script> -->
 <script src="<?php echo base_url();?>assets/admin/js/bootstrap.min.js"></script>

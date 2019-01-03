@@ -242,8 +242,8 @@ margin: 0;
 
           <i class="la la-bars"></i>
         </li> -->
-        <li role="presentation" class="basemap  "><a href="" ><span style="font-size: 16px;">Map</span></a></li>
-        <li role="presentation" class="basemap active"><a href="map_reports" ><span  style="font-size: 16px;">Data</span></a></li>
+        <li role="presentation" class="basemap  "><a href="report_page" ><span style="font-size: 16px;"><?php echo $site_info['map']?></span></a></li>
+        <li role="presentation" class="basemap active"><a href="map_reports" ><span  style="font-size: 16px;"><?php echo $site_info['data']?></span></a></li>
         <!-- <li role="presentation" class="basemap active"><a href="<?php echo base_url()?>map_download"> -->
           <!-- <img src="<?php echo base_url()?>assets/img/map-down.png" class="test-icon"> -->
           <!-- <span  style="font-size: 16px;"><?php echo $site_info['download']?> <?php echo $site_info['map']?></span></a></li> -->

@@ -178,4 +178,17 @@ class General {
 		}
 		return 0;
 	}
+
+
+public function hex_to_rgb($color,$opacity){
+
+	$split = str_split($color,2);
+	$r = hexdec($split[0]);
+	$g = hexdec($split[1]);
+	$b = hexdec($split[2]);
+	$rgb= "rgba(" . $r . ", " . $g . ", " . $b . ", ". $opacity . ")";
+	return $rgb;
+}
+
+
 }

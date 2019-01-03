@@ -41,11 +41,24 @@
                 </div>
               </div>
               <div class="col-md-2">
+                <?php if($feat_lang=='en'){ ?>
+                <a href="category?tbl=land_slides&&name=Land Slides">
                 <div class="disaster-summary-item" data-mh="summary-item">
                     <img src="<?php echo base_url()?>assets/icon/landslide1.png" height="64">
-                  <h6><?php echo LANDSLIDE ?></h6>
-                  <h4><?php echo !empty($report_inci['Landslide'])?$report_inci['Landslide']:'0'?></h4>
+                  <h6 style="color:black;"><?php echo LANDSLIDE ?></h6>
+                  <h4 style="color:black;">  106<?php //echo !empty($report_inci['Landslide'])?$report_inci['Landslide']:'0'?></h4>
                 </div>
+                </a>
+              <?php }else{?>
+                <a href="category?tbl=tbl_5bf5191f46de71542789407_tbl&&name=पहिरो">
+                <div class="disaster-summary-item" data-mh="summary-item">
+                    <img src="<?php echo base_url()?>assets/icon/landslide1.png" height="64">
+                  <h6 style="color:black;"><?php echo LANDSLIDE ?></h6>
+                  <h4 style="color:black;">  106<?php //echo !empty($report_inci['Landslide'])?$report_inci['Landslide']:'0'?></h4>
+                </div>
+                </a>
+
+                <?php }?>
               </div>
               <div class="col-md-2">
                 <div class="disaster-summary-item" data-mh="summary-item">
@@ -59,6 +72,12 @@
                   <p><?php echo !empty(MORE)?MORE:'' ?> +</p>
                 </a>
               </div>
+            </div>
+            <div class="banner-caption text-center mt-4">
+              <p>
+                Download a mobile app from play store to report hazards near you
+              </p>
+              <a href="https://play.google.com/store/apps/details?id=np.com.naxa.vso&hl=en" title="" target="_blank" class="btn btn-primary btn-lg">Download Now <img style="height: 32px;" src="<?php echo base_url()?>/uploads/icons/google.png"></i></a>
             </div>
           </div>
         </div>
@@ -111,7 +130,7 @@
                  if($exposure_data){
                   foreach($exposure_data as $data){ ?>
                 <li class="col-md-3 col-lg-2">
-                  <a href="<?php echo base_url()?>category?tbl=<?php echo $data['category_table'] ?> && name=<?php echo $data['category_name'] ?> " class="dataset-item-wrap margin-top-large" data-mh="eq-item">
+                  <a href="<?php echo base_url()?>category?tbl=<?php echo $data['category_table']?>&&name=<?php echo $data['category_name'] ?>" class="dataset-item-wrap margin-top-large" data-mh="eq-item">
                     <img src="<?php echo $data['category_photo'] ?>">
                     <h6><?php echo  $data['category_name'] ?></h6>
                       <span class="count"><?php
@@ -136,7 +155,7 @@
     if($hazard_data) {
     foreach($hazard_data as $data){ ?>
             <li class="col-md-3 col-lg-2">
-              <a href="<?php echo base_url()?>category?tbl=<?php echo $data['category_table'] ?> && name=<?php echo $data['category_name'] ?> " class="dataset-item-wrap margin-top-large" data-mh="eq-item">
+              <a href="<?php echo base_url()?>category?tbl=<?php echo $data['category_table']?>&&name=<?php echo $data['category_name'] ?> " class="dataset-item-wrap margin-top-large" data-mh="eq-item">
                 <img src="<?php echo $data['category_photo'] ?>">
 
                 <h6><?php echo  $data['category_name'] ?></h6>
@@ -208,7 +227,7 @@ if($baseline_data){
             <?php if ($feature['photo']): ?>
               <img src="<?php echo $feature['photo'] ?>" alt="विशेष डाटासेट">
             <?php endif; ?>
-            <h3><?php echo $feature['nepali_title'] ?></h3>
+            <h3><a href="#" title=""><?php echo $feature['nepali_title'] ?></a></h3>
             <p>
             <?php echo !empty($feature['nepali_summary'])?$feature['nepali_summary']:'' ?>
             </p>

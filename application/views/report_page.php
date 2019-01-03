@@ -387,7 +387,6 @@ button.btn.btn-light.btn-sm {
   border: 2px solid rgba(0,0,0,.06);
   background: rgba(0,0,0,.03);
 }
-
 /* tab css */
 ul.nav.nav-tabs li.basemap a{
 display: inline-block;
@@ -448,9 +447,6 @@ ul.nav.nav-tabs {
 ul.nav-tabs li.basemap{
 margin: 0;
 }
-
-
-
 </style>
 
 <!-- nepali / english -->
@@ -516,20 +512,6 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
 <!-- nepali / english -->
 
 <div id="conten-map">
-  <!-- <nav class="navbar navbar-expand-sm">
-    <ul class="navbar-nav"> -->
-      <!-- <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fa fa-map" aria-hidden="true"></i> <?php echo $site_info['map'] ?></a>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="map_reports"><i class="fa fa-database" aria-hidden="true"></i> <?php echo $site_info['data'] ?></a>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="map_reports_table"><i class="fa fa-pencil-square" aria-hidden="true"></i> <?php echo $site_info['ghatana_bib'] ?></a>
-      </li> -->
-    <!-- </ul>
-  </nav> -->
-
   <div class="container-fluid">
     <div class="row">
   <div class="col-md-6 no-padding col-sm-12">
@@ -539,8 +521,8 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
 
           <i class="la la-bars"></i>
         </li> -->
-        <li role="presentation" class="basemap active "><a href="report_page" ><span style="font-size: 16px;">Map</span></a></li>
-        <li role="presentation" class="basemap"><a href="map_reports" ><span  style="font-size: 16px;">Data</span></a></li>
+        <li role="presentation" class="basemap active "><a href="report_page" ><span style="font-size: 16px;"><?php echo $site_info['map']?></span></a></li>
+        <li role="presentation" class="basemap"><a href="map_reports" ><span  style="font-size: 16px;"><?php echo $site_info['data']?></span></a></li>
         <!-- <li role="presentation" class="basemap active"><a href="<?php echo base_url()?>map_download"> -->
           <!-- <img src="<?php echo base_url()?>assets/img/map-down.png" class="test-icon"> -->
           <!-- <span  style="font-size: 16px;"><?php echo $site_info['download']?> <?php echo $site_info['map']?></span></a></li> -->
@@ -607,7 +589,7 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
                                 <h3>Incident Type : <?php echo $data['incident_type'] ;?></h3>
                                 <hr>
                                 <div class="row">
-                                  <div class="col-md-4"><img src="<?php echo $data['photo_thumb'] ;?>" alt="image" class="read-mor"></div>
+                                  <div class="col-md-4"><img src="<?php echo $data['photo'] ;?>" alt="image" class="read-mor"></div>
                                   <div class="col-md-8">
                                     <?php echo $data['message'] ;?>
                                     <div class="row sent">
@@ -785,7 +767,7 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
                 <div class="panel-content padding">
                   <div id="bar_graph" style="display:block;" >
                     <div class="holders">
-                      <h6 class="clearfix"><strong class="pull-left">Wards</strong>  <span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="No. of reports per ward
+                      <h6 class="clearfix"><strong >Wards</strong>  <span class="indicator pull-right badge badge-primary" data-toggle="tooltip" data-placement="top" title="No. of reports per ward
 ">?</span></h6>
                       <div id="graphic"></div>
                     </div>
@@ -978,7 +960,7 @@ $(document).ready(function(){
       $(".panel.panel-success").toggle(1000);
       $(".layer-toggle i").toggleClass("fa-chevron-right");
     });
-    var sankhu = new L.geoJson.ajax("http://localhost/vso/geojson/Changunarayan.geojson", {
+    var sankhu = new L.geoJson.ajax("http://sankhu.dimpnepal.org/Shankharapur.geojson", {
 
       onEachFeature: function(feature,layer){
 

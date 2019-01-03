@@ -172,7 +172,7 @@
                 <li class="sub-menu">
                     <a href="javascript:;" class="<?php if($this->uri->segment(1) == '') { echo "dcjq-parent active"; } ?>">
                         <i class="fa fa-laptop"></i>
-                        <span>Home Page</span>
+                        <span><?php echo $this->lang->line('home_page'); ?></span>
                     </a>
                     <ul class="sub" style="<?php if($this->uri->segment(1) == 'view_proj') { echo "display: block"; } ?>">
                         <li class="<?php if($this->uri->segment(1) == 'view_proj') { echo "active"; } ?>"><a href="<?php echo base_url()?>view_proj"><?php echo $this->lang->line('project_partners'); ?></a></li>
@@ -202,7 +202,7 @@
                     <ul class="sub">
 
                         <li><a href="<?php echo base_url();?>categories_tbl_nep"> <?php echo $this->lang->line('categories'); ?></a></li>
-                        <li><a href="<?php echo base_url();?>sub_categories"> <?php echo $this->lang->line('sub_categories'); ?></a></li>
+                        <!-- <li><a href="<?php echo base_url();?>sub_categories"> <?php echo $this->lang->line('sub_categories'); ?></a></li> -->
 
                     </ul>
                 </li>
@@ -232,6 +232,28 @@
                           <li><a href="<?php echo base_url()?>emergency_personnel_nep?name=Municipal Executive Members&&cat=municipal_ex"><?php echo $this->lang->line('municipal_executive_members'); ?></a></li>
                           <li><a href="<?php echo base_url()?>emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=disaster"><?php echo $this->lang->line('municipal_disaster'); ?></a></li>
                           <li><a href="<?php echo base_url()?>emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=nntds"><?php echo $this->lang->line('nntds_executive'); ?></a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-th"></i>
+                        <span>Inventory</span>
+                    </a>
+                    <ul class="sub">
+
+                        <li><a href="<?php echo base_url();?>get_inventory?cat=food">खाद्य सामग्री /Food Items
+
+</a></li>
+                        <li><a href="<?php echo base_url();?>get_inventory?cat=non_food">गैरखाद्ध्य सामग्री / Non-Food Items
+
+</a></li>
+                        <li><a href="<?php echo base_url();?>get_inventory?cat=rescue">खोज तथा उद्धार सामग्री /Search and Rescue Materials
+</a></li>
+                        <li><a href="<?php echo base_url();?>get_inventory?cat=other">अन सामग्य/Other Materials</a></li>
+
 
                     </ul>
                 </li>

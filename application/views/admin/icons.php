@@ -25,6 +25,18 @@
                               ?>
                             <form role="form" method="POST" action="" enctype="multipart/form-data">
 
+                              <div class="form-group">
+                                  <label for="exampleInputFile">Icon Type</label>
+                                <select name="type">
+
+                                  <option value="cat">category icons</option>
+                                  <option value="marker">Markers</option>
+
+
+                                </select>
+                                  </div>
+
+
 
                               <div class="form-group ">
                                 <label class="control-label col-md-3">Add icons in Library </label>

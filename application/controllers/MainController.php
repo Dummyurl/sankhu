@@ -9,11 +9,26 @@ class MainController extends CI_Controller
     $this->load->helper('url');
     $this->load->model('Main_model');
     $this->load->model('Upload_model');
-    
+    $this->load->model('Report_model');
+
 
   }
 
   public function contact() {
+
+    //views add
+    $count=$this->Report_model->get_count_views('contact');
+
+    $add_count=$count['views_count']+1;
+
+    $data=array(
+      'views_count'=>$add_count,
+
+    );
+
+
+    $this->Report_model->update_views($count['id'],$data);
+    //count views end
     if($this->session->userdata('Language')==NULL){
 
       $this->session->set_userdata('Language','nep');
@@ -73,7 +88,19 @@ class MainController extends CI_Controller
 
     $this->load->model('Publication_model');
     $this->body['data']=$this->Publication_model->get_all_data();
+    //views add
+    $count=$this->Report_model->get_count_views('publication');
 
+    $add_count=$count['views_count']+1;
+
+    $data=array(
+      'views_count'=>$add_count,
+
+    );
+
+
+    $this->Report_model->update_views($count['id'],$data);
+    //count views end
     //language
     if($this->session->userdata('Language')==NULL){
 
@@ -141,11 +168,11 @@ class MainController extends CI_Controller
         $this->body['site_info'] = "";
         $this->body['feature']=$this->Main_model->get_feature();
         $this->body['feat_lang']='en';
-        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language));
+        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language,'public_view'=>'1'));
        // Exposure_Data
-        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language),'id');
-        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language),'id');
-        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language),'id');
+        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language,'public_view'=>'1'),'id');
+        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language,'public_view'=>'1'),'id');
+        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language,'public_view'=>'1'),'id');
         $tbl_list=array();
         foreach($cat_tbl_list as $list){
             if($this->db->table_exists($list['category_table'])) {
@@ -158,10 +185,10 @@ class MainController extends CI_Controller
         $language='nep';
         $this->body['feature']=$this->Main_model->get_feature_nep();
         $this->body['feat_lang']='nep';
-        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language));
-        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language),'id');
-        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language),'id');
-        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language),'id');
+        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language,'public_view'=>'1'));
+        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language,'public_view'=>'1'),'id');
+        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language,'public_view'=>'1'),'id');
+        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language,'public_view'=>'1'),'id');
         $tbl_list=array();
       foreach($cat_tbl_list as $list){
         array_push($tbl_list,$this->Main_model->count_dat_tbl($list['category_table']));
@@ -208,6 +235,7 @@ class MainController extends CI_Controller
 
 
     $this->Report_model->update_views($count['id'],$data);
+    //count views end
     //language
     if($this->session->userdata('Language')==NULL){
 
@@ -240,7 +268,7 @@ class MainController extends CI_Controller
   }
   public function get_category_table()
   {
-    
+
   }
   public function dataset_page_new(){
     //language
@@ -319,7 +347,19 @@ class MainController extends CI_Controller
   //datasets view page
 
   public function dataset_page(){
+    //views add
+    $count=$this->Report_model->get_count_views('dataset');
 
+    $add_count=$count['views_count']+1;
+
+    $data=array(
+      'views_count'=>$add_count,
+
+    );
+
+
+    $this->Report_model->update_views($count['id'],$data);
+    //count views end
 
     //language
     if($this->session->userdata('Language')==NULL){
@@ -483,6 +523,20 @@ class MainController extends CI_Controller
   }
 
   public function inventory(){
+
+    //views add
+    $count=$this->Report_model->get_count_views('inventory');
+
+    $add_count=$count['views_count']+1;
+
+    $data=array(
+      'views_count'=>$add_count,
+
+    );
+
+
+    $this->Report_model->update_views($count['id'],$data);
+    //count views end
     //language
     if($this->session->userdata('Language')==NULL){
 

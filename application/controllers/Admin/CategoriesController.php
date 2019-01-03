@@ -295,9 +295,9 @@ class CategoriesController extends CI_Controller
 
 
 
+     $this->load->model('Map_model');
 
-
-      $this->body['icon']=$this->Dash_model->get_tables_data('icons');
+      $this->body['icon']=$this->Map_model->get_icon('cat');
 
       //admin check
       $admin_type=$this->session->userdata('user_type');
@@ -752,7 +752,9 @@ class CategoriesController extends CI_Controller
                 }
             }
         }else{
-            $this->body['icon']=$this->Dash_model->get_tables_data('icons');
+          $this->load->model('Map_model');
+
+           $this->body['icon']=$this->Map_model->get_icon('cat');
             //admin check
             $admin_type=$this->session->userdata('user_type');
             $this->body['admin']=$admin_type;

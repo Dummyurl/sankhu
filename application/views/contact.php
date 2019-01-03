@@ -129,6 +129,7 @@ $heading_en_personnel='<th><strong>S.N</strong></th>
 <th><strong>Organization</strong></th>
 <th><strong>Post</strong></th>
 <th><strong>Address</strong></th>
+<th><strong>Ward</strong></th>
 <th><strong>Phone No.</strong></th>
 <th><strong>Email</strong></th>';
 
@@ -138,12 +139,14 @@ $heading_nep_personnel='<th><strong>क्र.स</strong></th>
 <th><strong>संस्था</strong></th>
 <th><strong>पद </strong></th>
 <th><strong>ठेगाना</strong></th>
+<th><strong>वार्ड</strong></th>
 <th><strong>फोन नम्बर</strong></th>
 <th><strong>इमेल</strong></th>';
 
 $heading_en='<th><strong>S.N</strong></th>
           <th data-th="Health Institutions"><strong>Organization</strong></th>
           <th><strong>Address</strong></th>
+          <th><strong>Ward</strong></th>
           <th><strong>Phone No.</strong></th>
           <th><strong>Alternate Phone No.</strong></th>
           <th><strong>Contact Person</strong></th>
@@ -156,13 +159,14 @@ $heading_en='<th><strong>S.N</strong></th>
 $heading_nep='<th><strong>क्र.स</strong></th>
                 <th data-th="Health Institutions"><strong>संस्था</strong></th>
                 <th><strong>ठेगाना</strong></th>
+                <th><strong>वार्ड</strong></th>
                 <th><strong>फोन नम्बर.</strong></th>
-                <th><strong>Alternate Phone No.</strong></th>
-                <th><strong>Contact Person</strong></th>
+                <th><strong>वैकल्पिक फोन नम्बर</strong></th>
+                <th><strong>सम्पर्क व्यक्ति</strong></th>
                 <th><strong>पद</strong></th>
-                <th><strong>Personal No.</strong></th>
+                <th><strong>व्यक्तिगत फोन नम्बर</strong></th>
                 <th><strong>इमेल</strong></th>
-                <th><strong>Website</strong></th>';
+                <th><strong>वेबसाइट</strong></th>';
 
 
 ?>
@@ -184,34 +188,34 @@ $heading_nep='<th><strong>क्र.स</strong></th>
       <li class="nav-item">
         <a class="nav-link" id="municipal_ex-tab" data-toggle="tab" href="#municipal_ex" role="tab" aria-controls="municipal_ex" aria-selected="false">Municipal Executive Members</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="disaster-tab" data-toggle="tab" href="#disaster" role="tab" aria-controls="disaster" aria-selected="false">Municipality Level Disaster Management Committee,</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" id="nntds-tab" data-toggle="tab" href="#nntds" role="tab" aria-controls="nntds" aria-selected="false">NNTDS's Executive Committee</a>
-      </li>
+      </li> -->
       <!-- break -->
       <li class="nav-item">
         <a class="nav-link" id="health-tab" data-toggle="tab" href="#health" role="tab" aria-controls="health" aria-selected="true">Health Institutions</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="emergency-tab" data-toggle="tab" href="#emergency" role="tab" aria-controls="emergency" aria-selected="false">Emergency Responders</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" id="security-tab" data-toggle="tab" href="#security" role="tab" aria-controls="security" aria-selected="false">Security</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="ngo-tab" data-toggle="tab" href="#ngo" role="tab" aria-controls="ngo" aria-selected="false">NGOs and INGOs</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" id="volunter-tab" data-toggle="tab" href="#volunter" role="tab" aria-controls="volunter" aria-selected="false">DRR Volunteers</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="person-tab" data-toggle="tab" href="#person" role="tab" aria-controls="person" aria-selected="false">Municipality Personnel</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" id="member-tab" data-toggle="tab" href="#member" role="tab" aria-controls="member" aria-selected="false">Members of Municipal Assemblysss</a>
-      </li>
+      </li> -->
     </ul>
 
 
@@ -232,35 +236,35 @@ $heading_nep='<th><strong>क्र.स</strong></th>
       <li class="nav-item">
         <a class="nav-link" id="municipal_ex-tab" data-toggle="tab" href="#municipal_ex" role="tab" aria-controls="municipal_ex" aria-selected="false">पालिकाका कार्यकारी सदस्यहरु</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="disaster-tab" data-toggle="tab" href="#disaster" role="tab" aria-controls="disaster" aria-selected="false">नगरपालिका तहको प्रकोप व्यवस्थापन समिति,</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" id="nntds-tab" data-toggle="tab" href="#nntds" role="tab" aria-controls="nntds" aria-selected="false">NNTDS को कार्यसमिति</a>
-      </li>
+      </li> -->
       <!-- break -->
       <li class="nav-item">
         <a class="nav-link" id="health-tab" data-toggle="tab" href="#health" role="tab" aria-controls="health" aria-selected="true">स्वास्थ्य संस्थाहरु</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="emergency-tab" data-toggle="tab" href="#emergency" role="tab" aria-controls="emergency" aria-selected="false">आपतकालिन परिचालकहरु</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" id="security-tab" data-toggle="tab" href="#security" role="tab" aria-controls="security" aria-selected="false">सुरक्षा निकाय</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="ngo-tab" data-toggle="tab" href="#ngo" role="tab" aria-controls="ngo" aria-selected="false">गैर सरकारी संस्थाहरु & अन्तराष्ट्रिय गैर सरकारी संस्थाहरु
-</a>
-      </li>
+        </a>
+      </li> -->
       <li class="nav-item">
-        <a class="nav-link" id="volunter-tab" data-toggle="tab" href="#volunter" role="tab" aria-controls="volunter" aria-selected="false">प्रकोप जोखिम न्युनिकरणमा खटिएका स्वयंसेवकहरु</a>
+        <a class="nav-link" id="volunter-tab" data-toggle="tab" href="#volunter" role="tab" aria-controls="volunter" aria-selected="false">DDR स्वयंसेवकहरु</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" id="person-tab" data-toggle="tab" href="#person" role="tab" aria-controls="person" aria-selected="false">प्रकोप जोखिम न्युनिकरणमा खटिएका स्वयंसेवकहरु</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="member-tab" data-toggle="tab" href="#member" role="tab" aria-controls="member" aria-selected="false">प्रकोप जोखिम न्युनिकरणमा खटिएका स्वयंसेवकहरु</a>
-      </li>
+      </li> -->
     </ul>
 
 
@@ -314,6 +318,7 @@ if($chairpersons){
        <td id="<?php echo $chairpersons['id'] ?>organizationchairpersons"><?php echo $chairpersons['organization'] ?></td>
        <td id="<?php echo $chairpersons['id'] ?>postchairpersons"><?php echo $chairpersons['post'] ?></td>
        <td id="<?php echo $chairpersons['id'] ?>addresschairpersons"><?php echo $chairpersons['address'] ?></td>
+       <td id="<?php echo $chairpersons['id'] ?>wardchairpersons"><?php echo $chairpersons['ward'] ?></td>
        <td id="<?php echo $chairpersons['id'] ?>phone_nochairpersons"><?php echo $chairpersons['phone_no'] ?></td>
        <td id="<?php echo $chairpersons['id'] ?>emailchairpersons"><?php echo $chairpersons['email'] ?></td>
 
@@ -366,6 +371,7 @@ if($chief){
        <td id="<?php echo $chief['id'] ?>organizationcheif"><?php echo $chief['organization'] ?></td>
        <td id="<?php echo $chief['id'] ?>postcheif"><?php echo $chief['post'] ?></td>
        <td id="<?php echo $chief['id'] ?>addresscheif"><?php echo $chief['address'] ?></td>
+       <td id="<?php echo $chief['id'] ?>wardcheif"><?php echo $chief['ward'] ?></td>
        <td id="<?php echo $chief['id'] ?>phone_nocheif"><?php echo $chief['phone_no'] ?></td>
        <td id="<?php echo $chief['id'] ?>emailcheif"><?php echo $chief['email'] ?></td>
 
@@ -418,6 +424,7 @@ if($elected){
        <td id="<?php echo $elected['id'] ?>organizationelected"><?php echo $elected['organization'] ?></td>
        <td id="<?php echo $elected['id'] ?>postelected"><?php echo $elected['post'] ?></td>
        <td id="<?php echo $elected['id'] ?>addresselected"><?php echo $elected['address'] ?></td>
+       <td id="<?php echo $elected['id'] ?>wardselected"><?php echo $elected['ward'] ?></td>
        <td id="<?php echo $elected['id'] ?>phone_noelected"><?php echo $elected['phone_no'] ?></td>
        <td id="<?php echo $elected['id'] ?>emailelected"><?php echo $elected['email'] ?></td>
 
@@ -472,6 +479,7 @@ if($municipal_ex){
        <td id="<?php echo $municipal_ex['id'] ?>organizationmunicipal_ex"><?php echo $municipal_ex['organization'] ?></td>
        <td id="<?php echo $municipal_ex['id'] ?>postmunicipal_ex"><?php echo $municipal_ex['post'] ?></td>
        <td id="<?php echo $municipal_ex['id'] ?>addressmunicipal_ex"><?php echo $municipal_ex['address'] ?></td>
+       <td id="<?php echo $municipal_ex['id'] ?>wardmunicipal_ex"><?php echo $municipal_ex['ward'] ?></td>
        <td id="<?php echo $municipal_ex['id'] ?>phone_nomunicipal_ex"><?php echo $municipal_ex['phone_no'] ?></td>
        <td id="<?php echo $municipal_ex['id'] ?>emailmunicipal_ex"><?php echo $municipal_ex['email'] ?></td>
 
@@ -528,7 +536,8 @@ if($disaster){
        <td id="<?php echo $disaster['id'] ?>namedisaster"><?php echo $disaster['name'] ?></td>
        <td id="<?php echo $disaster['id'] ?>organizationdisaster"><?php echo $disaster['organization'] ?></td>
        <td id="<?php echo $disaster['id'] ?>postdisaster"><?php echo $disaster['post'] ?></td>
-       <td id="<?php echo $disaster['id'] ?>adisasteressdisaster"><?php echo $disaster['address'] ?></td>
+       <td id="<?php echo $disaster['id'] ?>addressdisaster"><?php echo $disaster['address'] ?></td>
+       <td id="<?php echo $disaster['id'] ?>warddisaster"><?php echo $disaster['ward'] ?></td>
        <td id="<?php echo $disaster['id'] ?>phone_nodisaster"><?php echo $disaster['phone_no'] ?></td>
        <td id="<?php echo $disaster['id'] ?>emaildisaster"><?php echo $disaster['email'] ?></td>
 
@@ -544,7 +553,7 @@ if($disaster){
    <!-- responsive table for displaying contact directory -->
    <table class="table table-striped table-bordered table-hover bg-white mt-3">
      <thead class="thead-light">
-      <th><span>S.N</span></th>
+
       <?php if($con_lang=='en'){
 
         echo $heading_en_personnel;
@@ -575,7 +584,8 @@ if($disaster){
        <td id="<?php echo $nntds['id'] ?>namenntds"><?php echo $nntds['name'] ?></td>
        <td id="<?php echo $nntds['id'] ?>organizationnntds"><?php echo $nntds['organization'] ?></td>
        <td id="<?php echo $nntds['id'] ?>postnntds"><?php echo $nntds['post'] ?></td>
-       <td id="<?php echo $nntds['id'] ?>anntdsessnntds"><?php echo $nntds['address'] ?></td>
+       <td id="<?php echo $nntds['id'] ?>addressnntds"><?php echo $nntds['address'] ?></td>
+       <td id="<?php echo $nntds['id'] ?>wardnntds"><?php echo $nntds['ward'] ?></td>
        <td id="<?php echo $nntds['id'] ?>phone_nonntds"><?php echo $nntds['phone_no'] ?></td>
        <td id="<?php echo $nntds['id'] ?>emailnntds"><?php echo $nntds['email'] ?></td>
 
@@ -631,6 +641,7 @@ if($health){
           <td id="<?php echo $health['id'] ?>idhealth"><?php echo $i; ?></td>
           <td id="<?php echo $health['id'] ?>organizationhealth"><?php echo $health['organization'] ?></td>
           <td id="<?php echo $health['id'] ?>addresshealth"><?php echo $health['address'] ?></td>
+          <td id="<?php echo $health['id'] ?>wardhealth"><?php echo $health['ward'] ?></td>
           <td id="<?php echo $health['id'] ?>phone_nohealth"><?php echo $health['phone_no'] ?></td>
           <td id="<?php echo $health['id'] ?>alternate_phone_nohealth"><?php echo $health['alternate_phone_no'] ?></td>
           <td id="<?php echo $health['id'] ?>contact_personhealth"><?php echo $health['contact_person'] ?></td>
@@ -678,6 +689,7 @@ if($responders){
         <td id="<?php echo $responders['id'] ?>idresponders"><?php echo $i; ?></td>
         <td id="<?php echo $responders['id'] ?>organizationresponders"><?php echo $responders['organization'] ?></td>
         <td id="<?php echo $responders['id'] ?>addressresponders"><?php echo $responders['address'] ?></td>
+        <td id="<?php echo $responders['id'] ?>wardresponders"><?php echo $responders['ward'] ?></td>
         <td id="<?php echo $responders['id'] ?>phone_noresponders"><?php echo $responders['phone_no'] ?></td>
         <td id="<?php echo $responders['id'] ?>alternate_phone_noresponders"><?php echo $responders['alternate_phone_no'] ?></td>
         <td id="<?php echo $responders['id'] ?>contact_personresponders"><?php echo $responders['contact_person'] ?></td>
@@ -725,6 +737,7 @@ if($security){
     <td id="<?php echo $security['id'] ?>idSecurity"><?php echo $i; ?></td>
     <td id="<?php echo $security['id'] ?>organizationSecurity"><?php echo $security['organization'] ?></td>
     <td id="<?php echo $security['id'] ?>addressSecurity"><?php echo $security['address'] ?></td>
+    <td id="<?php echo $security['id'] ?>wardSecurity"><?php echo $security['ward'] ?></td>
     <td id="<?php echo $security['id'] ?>phone_noSecurity"><?php echo $security['phone_no'] ?></td>
     <td id="<?php echo $security['id'] ?>alternate_phone_noSecurity"><?php echo $security['alternate_phone_no'] ?></td>
     <td id="<?php echo $security['id'] ?>contact_personSecurity"><?php echo $security['contact_person'] ?></td>
@@ -768,6 +781,7 @@ if($ngo){
           <td id="<?php echo $ngo['id'] ?>idngo"><?php echo $i; ?></td>
           <td id="<?php echo $ngo['id'] ?>organizationngo"><?php echo $ngo['organization'] ?></td>
           <td id="<?php echo $ngo['id'] ?>addressngo"><?php echo $ngo['address'] ?></td>
+          <td id="<?php echo $ngo['id'] ?>wardngo"><?php echo $ngo['ward'] ?></td>
           <td id="<?php echo $ngo['id'] ?>phone_nongo"><?php echo $ngo['phone_no'] ?></td>
           <td id="<?php echo $ngo['id'] ?>alternate_phone_nongo" ><?php echo $ngo['alternate_phone_no'] ?></td>
           <td id="<?php echo $ngo['id'] ?>contact_personngo"><?php echo $ngo['contact_person'] ?></td>
@@ -823,6 +837,7 @@ if($ddr){
        <td id="<?php echo $ddr['id'] ?>organizationddr"><?php echo $ddr['organization'] ?></td>
        <td id="<?php echo $ddr['id'] ?>postddr"><?php echo $ddr['post'] ?></td>
        <td id="<?php echo $ddr['id'] ?>addressddr"><?php echo $ddr['address'] ?></td>
+       <td id="<?php echo $ddr['id'] ?>wardddr"><?php echo $ddr['ward'] ?></td>
        <td id="<?php echo $ddr['id'] ?>phone_noddr"><?php echo $ddr['phone_no'] ?></td>
        <td id="<?php echo $ddr['id'] ?>emailddr"><?php echo $ddr['email'] ?></td>
 
@@ -873,6 +888,7 @@ if($personnel){
        <td id="<?php echo $personnel['id'] ?>organizationpersonnel"><?php echo $personnel['organization'] ?></td>
        <td id="<?php echo $personnel['id'] ?>postpersonnel"><?php echo $personnel['post'] ?></td>
        <td id="<?php echo $personnel['id'] ?>addresspersonnel"><?php echo $personnel['address'] ?></td>
+       <td id="<?php echo $personnel['id'] ?>wardpersonnel"><?php echo $personnel['ward'] ?></td>
        <td id="<?php echo $personnel['id'] ?>phone_nopersonnel"><?php echo $personnel['phone_no'] ?></td>
        <td id="<?php echo $personnel['id'] ?>emailpersonnel"><?php echo $personnel['email'] ?></td>
 
@@ -923,6 +939,7 @@ if($members){
           <td id="<?php echo $members['id'] ?>organizationmembers"><?php echo $members['organization'] ?></td>
           <td id="<?php echo $members['id'] ?>postmembers"><?php echo $members['post'] ?></td>
           <td id="<?php echo $members['id'] ?>addressmembers"><?php echo $members['address'] ?></td>
+          <td id="<?php echo $members['id'] ?>wardmembers"><?php echo $members['ward'] ?></td>
           <td id="<?php echo $members['id'] ?>phone_nomembers"><?php echo $members['phone_no'] ?></td>
           <td id="<?php echo $members['id'] ?>emailmembers"><?php echo $members['email'] ?></td>
 

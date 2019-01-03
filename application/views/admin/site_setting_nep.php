@@ -369,6 +369,21 @@
                                 </div>
                               </div>
 
+                              <div class="panel panel-info class">
+                                  <form>
+                                <div class="panel-heading">
+                                  Add Icons And Markers to LIbrary
+                                </div>
+                                <div class="panel-body space">
+
+
+                                  <div class="col-md-11">
+                                    <a href="<?php echo base_url()?>add_icon"  class="btn btn-primary">Update</a>
+                                  </div>
+                                    </form>
+                                </div>
+                              </div>
+
 
                             </div>
 

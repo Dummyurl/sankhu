@@ -140,4 +140,17 @@ exit();
 }
 
 
+// if( $data['the geom'] == null){
+//   }else{
+//
+//     $ddata=$data ;
+//     unset($data['st_asgeojson']);
+//     $features_cat[]= array(
+//       'type' =>'Feature',
+//       'properties'=>$data,
+//       'geometry'=>json_decode($ddata['st_asgeojson'],JSON_NUMERIC_CHECK)
+//     );
+//   }
+
+
 }//end

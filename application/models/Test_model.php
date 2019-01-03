@@ -11,8 +11,7 @@ class Test_model extends CI_Model {
 
     $this->db->order_by('id','ASC');
     $q=$this->db->get($tbl);
-    // echo $this->db->last_query();
-    // die;
+
     return $q->result_array();
 
 

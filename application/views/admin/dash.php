@@ -83,11 +83,11 @@ h1.sub{
       <section class="panel">
         <div class="panel-body">
 
-         <img src="<?php echo $max['photo']?>" alt="visited" height=330; width=310;>
+         <img src="<?php echo $max['photo']?>" alt="visited" max-height=330px; min-height=250px; width=310px;>
          <!-- Tab panes -->
 
        </div>
-       <p class="text-center"><b><?php echo $this->lang->line('most_visited'); ?> </b></p>
+       <p class="text-center"><b><?php echo $this->lang->line('most_visited'); ?> (<?php echo $max['views_count']?> views) </b></p>
 
 
      </section>
@@ -105,7 +105,10 @@ h1.sub{
 var home=parseInt("<?php echo $home ?>");
 var map=parseInt("<?php echo $map ?>");
 var report=parseInt("<?php echo $reports ?>");
-//var about=parseInt("<?php echo $about ?>");
+var contact=parseInt("<?php echo $contact ?>");
+var dataset=parseInt("<?php echo $dataset ?>");
+var inventory=parseInt("<?php echo $inventory ?>");
+var publication=parseInt("<?php echo $publication ?>");
 
 
 window.onload = function () {
@@ -128,7 +131,10 @@ var chart = new CanvasJS.Chart("chartContainer", {
       { y: home, label: "<?php echo $this->lang->line('home'); ?>" },
       { y: map,  label: "<?php echo $this->lang->line('map'); ?>" },
       { y: report,  label: "<?php echo $this->lang->line('reports'); ?>" },
-      // { y: about,  label: "About" },
+      { y: contact,  label: "Contact" },
+      { y: dataset,  label: "Dataset" },
+      { y: inventory,  label: "Inventory" },
+      { y: publication,  label: "Publication" },
 
     ]
   }]

@@ -648,5 +648,10 @@ public function test_preg(){
 echo   preg_replace('/[^A-Za-z0-9\-]/', ' ', 'Office.-space_+*%$=?/)(&^)><>< status');
 //echo strip_tags('Office.space_-+*?/)(&^)><>< status');
 }
+//'<div class="dot" style=" height: 12px;width: 12px;background-color:blue;opacity: 0.5;border-radius: 50%;display: inline-block;margin-left:5px; border:1px solid black"></div>  <div style=" width:12px;height:12px;background-color:red;opacity: 0.5;display:inline-block;border:1px solid #907c7c;margin-left:5px;"> </div>'
+
+
+
+
 
 }//end

@@ -332,10 +332,10 @@ $map_eng='	<option value="0">All</option>
 			<ul class="nav nav-tabs" role="tablist">
 				<li class="basemap chevron1" id="close-panel-left">
 					<!-- <img src="<?php echo base_url()?>assets/img/up-arrow.png" class="test-icon chevron"> -->
-					<i class="la la-bars"></i>
+					<!-- <i class="la la-bars"></i> -->
 				</li>
-				<li role="presentation" class="basemap "><a href="" ><span style="font-size: 16px;">Map</span></a></li>
-				<li role="presentation" class="basemap"><a href="#" ><span  style="font-size: 16px;">Datasets</span></a></li>
+				<li role="presentation" class="basemap "><a href="category?tbl=0&&name=0" ><span style="font-size: 16px;"><?php echo $site_info['map']?></span></a></li>
+				<li role="presentation" class="basemap"><a href="#" ><span  style="font-size: 16px;"><?php echo $site_info['nav_5']?></span></a></li>
 				<li role="presentation" class="basemap active"><a href="<?php echo base_url()?>map_download">
 					<!-- <img src="<?php echo base_url()?>assets/img/map-down.png" class="test-icon"> -->
 					<span  style="font-size: 16px;"><?php echo $site_info['download']?> <?php echo $site_info['map']?></span></a></li>
@@ -348,7 +348,7 @@ $map_eng='	<option value="0">All</option>
 			<ul class="nav nav-tabs" role="tablist">
 				<li class=" basemap chevron2 navbar-right" id="close-panel-right">
 					<!-- <img src="<?php echo base_url()?>assets/img/up-arrow.png" class="test-icon chevron"> -->
-					<i class="la la-info-circle"></i>
+					<!-- <i class="la la-info-circle"></i> -->
 				</li>
 			</ul>
 		</div>

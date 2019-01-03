@@ -33,12 +33,18 @@ class DashController extends CI_Controller
     $home=$this->Admin_dash_model->count_views('home');
     $map=$this->Admin_dash_model->count_views('map');
     $reports=$this->Admin_dash_model->count_views('reports');
-    $about=$this->Admin_dash_model->count_views('about');
+    $contact=$this->Admin_dash_model->count_views('contact');
+    $dataset=$this->Admin_dash_model->count_views('dataset');
+    $inventory=$this->Admin_dash_model->count_views('inventory');
+    $publication=$this->Admin_dash_model->count_views('publication');
 
     $this->body['home']=$home['views_count'];
     $this->body['map']=$map['views_count'];
     $this->body['reports']=$reports['views_count'];
-    $this->body['about']=$about['views_count'];
+    $this->body['contact']=$contact['views_count'];
+    $this->body['dataset']=$dataset['views_count'];
+    $this->body['inventory']=$inventory['views_count'];
+    $this->body['publication']=$publication['views_count'];
     //var_dump($this->body['user']);
 
 

@@ -124,7 +124,7 @@ $pub_cat_en='<option value=0>ALL</option>
 
   <div class="col-md-4 col-xl-3">
               <div class="publication-item padding bg-white" data-mh="publication">
-                <div class="thumb"><img src="<?php echo $d['photo']?>" ></div>
+                <div class="thumb"><img src="<?php echo base_url()?>/uploads/icons/doc.png" ></div>
                 <h6 class="name" id="<?php echo $d['id'] ?>"><?php echo $d['title']?></h6>
                 <p><?php echo $d['summary']?></p>
                 <a href="<?php echo base_url()?>download?file=<?php echo $d['file']?> && title=<?php echo $d['title']?>" class="btn btn-primary btn-block"><?php echo $site_info['download'] ?> <i class="la la-download"></i></a>

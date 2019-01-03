@@ -655,7 +655,9 @@ public function emergency_personnel_nep(){
 
     if(isset($_POST['submit'])){
 
+
       $file_name = $_FILES['back_pic']['name'];
+      $type=$this->input->post('type');
 
       $ext = pathinfo($file_name, PATHINFO_EXTENSION);
       $proj_name='icon'.time();
@@ -669,7 +671,8 @@ public function emergency_personnel_nep(){
 
         $data=array(
 
-          'icon_path'=>$image_path
+          'icon_path'=>$image_path,
+          'type'=>$type
 
         );
 
@@ -749,10 +752,12 @@ if($table_name == 'emergency_contact'){
 
 
   unset($fields[10]);
+  unset($fields[11]);
 
 }else{
 
 unset($fields[8]);
+unset($fields[9]);
 
 }
   $field_name=implode(",",$fields);

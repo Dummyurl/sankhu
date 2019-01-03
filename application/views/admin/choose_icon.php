@@ -88,8 +88,8 @@ div#exampleModal {
                               <div class="col-md-3">
 
                                   <label>
-                                    <input id="fb3" type="radio" value="<?php echo $v['marker_path']?>" name="icon" value="med" />
-                                    <img class="map-marker" src="<?php echo $v['marker_path']?>"  alt="Logo"  >
+                                    <input id="fb3" type="radio" value="<?php echo $v['icon_path']?>" name="icon" value="med" />
+                                    <img class="map-marker" src="<?php echo $v['icon_path']?>"  alt="Logo"  >
 
                                   </label>
                                 </div>
