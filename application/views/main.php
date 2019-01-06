@@ -204,37 +204,39 @@ if($baseline_data){
       </div>
     </div>
         <?php if($feat_lang=='en'){ ?>
-<a href="category?tbl=<?php echo $feature['table'] ?> && name=<?php echo $feature['title'] ?>">
+
     <div class="bg-white feature-section">
       <div class="container">
         <div class="featured-post clearfix">
           <h5 class="post-ribbon">Featured Dataset</h5>
+          <a href="category?tbl=<?php echo $feature['table'] ?> && name=<?php echo $feature['title'] ?>">
           <img src="<?php echo $feature['photo'] ?>" alt="">
-          <h3><?php echo $feature['title'] ?></h3>
+          <h3><?php echo $feature['title'] ?></h3></a>
           <p>
           <?php echo $feature['summary'] ?>
           </p>
         </div>
       </div>
     </div>
-</a>
+
 <?php }else{ ?>
-  <a href="category?tbl=<?php echo $feature['table'] ?>&& name=<?php echo $feature['nepali_title'] ?>">
+
       <div class="bg-white feature-section">
         <div class="container">
           <div class="featured-post clearfix">
             <h5 class="post-ribbon">विशेष डाटासेट</h5>
+            <a href="category?tbl=<?php echo $feature['table'] ?>&& name=<?php echo $feature['nepali_title'] ?>">
             <?php if ($feature['photo']): ?>
               <img src="<?php echo $feature['photo'] ?>" alt="विशेष डाटासेट">
             <?php endif; ?>
-            <h3><a href="#" title=""><?php echo $feature['nepali_title'] ?></a></h3>
+            <h3><?php echo $feature['nepali_title'] ?></h3>  </a>
             <p>
             <?php echo !empty($feature['nepali_summary'])?$feature['nepali_summary']:'' ?>
             </p>
           </div>
         </div>
       </div>
-  </a>
+
 <?php } ?>
 <script type="text/javascript">
   $("#started").click(function() {

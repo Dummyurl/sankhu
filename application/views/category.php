@@ -90,8 +90,8 @@ img.filter-icon {
   margin-right: 5px;
 }
 img.mrker-icon {
-  height: 16px;
-  margin-right: 10px;
+  height: 18px;
+  margin-left: 5px;
 }
 
 li.basemap.chevron2 {
@@ -1038,6 +1038,8 @@ li.basemap.chevron1{
   cursor: pointer;
 }
 
+
+
 </style>
 
 
@@ -1197,7 +1199,7 @@ $(document).ready(function(){
 
                             if($data['style']==NULL){ //style null check
 
-                              $mark_div='<div style=" width:12px;height:12px;background-color:blue;opacity: 0.5;display:inline-block;border:1px solid #907c7c;margin-left:5px;"> </div>';
+                              $mark_div='<div style=" width:12px;height:12px;background-color:rgba(51, 136, 255, 0.4);opacity: 0.5;display:inline-block;border:2px solid rgba(51, 136, 255, 1);margin-left:5px;"> </div>';
 
 
 
@@ -1623,7 +1625,7 @@ $(document).ready(function(){
 
               if($data['style']==NULL){ //style null check
 
-                $mark_div='<div style=" width:12px;height:12px;background-color:red;opacity: 0.5;display:inline-block;border:1px solid #907c7c;margin-left:5px;"> </div>';
+                  $mark_div='<div style=" width:12px;height:12px;background-color:rgba(51, 136, 255, 0.4);opacity: 0.5;display:inline-block;border:2px solid rgba(51, 136, 255, 1);margin-left:5px;"> </div>';
 
 
 
@@ -2052,7 +2054,7 @@ $(document).ready(function(){
 
               if($data['style']==NULL){ //style null check
 
-                $mark_div='<div style=" width:12px;height:12px;background-color:red;opacity: 0.5;display:inline-block;border:1px solid #907c7c;margin-left:5px;"> </div>';
+                $mark_div='<div style=" width:12px;height:12px;background-color:rgba(51, 136, 255, 0.4);opacity: 0.5;display:inline-block;border:2px solid rgba(51, 136, 255, 1);margin-left:5px;"> </div>';
 
 
 

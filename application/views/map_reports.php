@@ -230,6 +230,41 @@ ul.nav-tabs li.basemap{
 margin: 0;
 }
 
+/*  data table new css */
+table.dataTable {
+  margin-top: 15px;
+}
+
+.dt-buttons{
+  display: inline-block;
+}
+
+.dataTables_filter{
+  display: inline-block;
+  position: absolute;
+  left: 865px;
+      width: fit-content !important;
+}
+
+.dataTables_paginate{
+
+  float: left !important;
+  margin-left: 640px;
+}
+
+.body-container{
+
+  margin-top: 10px;
+  background: white;
+}
+.dt-button{
+  color: white;
+background: #0056b3;
+border: 0px;
+padding: 5px 15px 5px 15px;
+margin-right: 5px;
+}
+
 </style>
 
 <div id="conten-map">
@@ -275,7 +310,7 @@ margin: 0;
         <div class="row">
               <div class="col-md-9"><h4 class="text-uppercase m-0"><strong><?php echo $site_info['total_reports'] ?></strong></h4></div>
               <div class="col-md-3 clearfix">
-                <a class="btn btn-primary btn-sm pull-right" href="ReportController/map_data_download"><i class="fa fa-cloud-download"></i> <?php echo $site_info['download'] ?></a>
+                <!-- <a class="btn btn-primary btn-sm pull-right" href="ReportController/map_data_download"><i class="fa fa-cloud-download"></i> <?php echo $site_info['download'] ?></a> -->
                 <!-- <ul class="list-inline"> -->
 
 

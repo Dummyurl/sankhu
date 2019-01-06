@@ -12,7 +12,7 @@
   <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/ng.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <title><?php echo SITE_NAME_EN ?></title>
+  <title><?php echo SITE_Title ?></title>
 
 
   <!-- Bootstrap core CSS -->

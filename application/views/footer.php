@@ -123,28 +123,26 @@
         <div class="footer-bottom">
           <div class="container">
             <div class="row">
-              <div class="col-md-6 sec-left">
+              <div class="col-md-4 sec-left">
                 <p class="margin-top">
                   &copy; <?php echo !empty(COPY_DATE)?COPY_DATE:'' ?> <a href="#" title=""></a><?php echo !empty(COPY_TEXT)?COPY_TEXT:'' ?>
                 </p>
               </div>
-              <div class="col-md-6 sec-center">
+              <div class="col-md-4 sec-center">
                 <p class="margin-top">
-                Developed by: <a href="http://naxa.com.np/"> NAXA </a> under PRAGATI Project
+                Developed by: <a href="http://naxa.com.np/"> &nbsp; NAXA</a>under PRAGATI Project
                 </p>
               </div>
-              <div class="col-md-6 sec-right">
+              <div class="col-md-4 sec-right">
                 <p class="margin-top social-icons">
 
-                <?php if(FACEBOOK): ?>
+
                   <a href="<?php echo FACEBOOK ?>" title=""><i class="fa fa-facebook"></i></a>
-                <?php endif;
-                 if(TWITTER): ?>
+
                   <a href="<?php echo TWITTER ?>" title=""><i class="fa fa-twitter"></i></a>
-                <?php endif;
-                  if(GOOGLE): ?>
+
                   <a href="<?php echo GOOGLE ?>" title=""><i class="fa fa-google-plus"></i></a>
-                <?php endif; ?>
+
                 </p>
               </div>
             </div>

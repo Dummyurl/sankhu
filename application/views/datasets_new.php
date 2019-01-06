@@ -217,7 +217,44 @@ ul.nav.nav-tabs {
 ul.nav-tabs li.basemap{
 margin: 0;
 }
+.p-4{
+padding: 25px 0px 25px 10px !important;
+}
 
+/*  data table new css */
+table.dataTable {
+  margin-top: 15px;
+}
+
+.dt-buttons{
+  display: inline-block;
+}
+
+.dataTables_filter{
+  display: inline-block;
+  position: absolute;
+  left: 865px;
+      width: fit-content !important;
+}
+
+.dataTables_paginate{
+
+  float: left !important;
+  margin-left: 640px;
+}
+
+.body-container{
+
+  margin-top: 10px;
+  background: white;
+}
+.dt-button{
+  color: white;
+background: #0056b3;
+border: 0px;
+padding: 5px 15px 5px 15px;
+margin-right: 5px;
+}
 
 </style>
 <div class="datset-page">
@@ -253,7 +290,7 @@ margin: 0;
 
 </div>
 </div>
-	<div class="container">
+	<div class="container body-container">
 
 
 
@@ -265,7 +302,7 @@ margin: 0;
 	                <div class="form-group">
 	                	<h5 align="center" class="select_d">Select Data</h5>
 		                <select class="form-control" id="categoryGet">
-		                	<option value="">-------Select Category--------</option>
+		                	<option value="" disabled>-------Select Category--------</option>
 		                	<?php foreach ($data_panel as $key => $cat) { ?>
 								<option data-id="<?php echo $cat['category_name']; ?>" value="<?php echo $cat['category_table']; ?>" <?php if($cat['category_table'] ==$this->input->get('tbl')) echo "SELECTED=SELECTED"; ?>><?php echo $cat['category_name']; ?></option>
 							<?php } ?>
@@ -336,7 +373,10 @@ margin: 0;
 	</div>
 </div>
 <script>
+
 	$(document).ready( function  () {
+
+
 		var txt = $('#categoryGet :selected').text();
 		$(".keywords").html(txt);
 	    $('#categoryGet').on('change',function () {

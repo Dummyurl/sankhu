@@ -131,10 +131,10 @@ var chart = new CanvasJS.Chart("chartContainer", {
       { y: home, label: "<?php echo $this->lang->line('home'); ?>" },
       { y: map,  label: "<?php echo $this->lang->line('map'); ?>" },
       { y: report,  label: "<?php echo $this->lang->line('reports'); ?>" },
-      { y: contact,  label: "Contact" },
-      { y: dataset,  label: "Dataset" },
-      { y: inventory,  label: "Inventory" },
-      { y: publication,  label: "Publication" },
+      { y: contact,  label: "<?php echo $this->lang->line('contacts'); ?>" },
+      { y: dataset,  label: "<?php echo $this->lang->line('dataset'); ?>" },
+      { y: inventory,  label: "<?php echo $this->lang->line('inventory'); ?>" },
+      { y: publication,  label: "<?php echo $this->lang->line('publication'); ?>" },
 
     ]
   }]

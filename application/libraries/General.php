@@ -48,6 +48,7 @@ class General {
 		$cur_date = date('Y/m/d');
 		// define('CURDATE_EN', $cur_date);
 		define('SITE_NAME_EN', $site_info['site_name']);
+		define('SITE_Title', $site_info['site_title']);
 		define('SITE_SLOGAN_EN', $site_info['site_logo']);
 		define('SITE_TEXT_EN', $site_info['site_text']);
 		define('COVER_POHOTO_EN', $site_info['cover_photo']);
