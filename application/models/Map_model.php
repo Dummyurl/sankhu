@@ -9,6 +9,29 @@ class Map_model extends CI_Model {
     return $q->row_array();
   }
 
+  public function get_jsn($tbl){
+
+    $this->db->select('*');
+    $this->db->where('category_table',$tbl);
+    $q=$this->db->get('categories_tbl');
+    return $q->row_array();
+  }
+
+  public function get_data_con($d,$tbl){
+
+    for($i=0; sizeof($d['a'])>$i; $i++){
+    $this->db->select($d['a'][$i]['col'].' AS '. $d['a'][$i]['name']);
+    }
+
+    $this->db->order_by('id','ASC');
+    $q=$this->db->get($tbl);
+
+    return $q->result_array();
+
+
+  }
+
+
 
   public function get_as_map_data($d,$tbl){
 
@@ -123,7 +146,7 @@ class Map_model extends CI_Model {
     $this->db->select('*');
     $this->db->where('language','en');
       $this->db->where('category_type',$cat);
-    $this->db->order_by('id','ASC');
+    $this->db->order_by('order_cat','ASC');
     $query=$this->db->get($tbl);
     return $query->result_array();
   }
@@ -140,7 +163,7 @@ class Map_model extends CI_Model {
     $this->db->select('*');
     $this->db->where('language','nep');
     $this->db->where('category_type',$cat);
-    $this->db->order_by('id','ASC');
+    $this->db->order_by('order_cat','ASC');
     $query=$this->db->get($tbl);
     return $query->result_array();
   }

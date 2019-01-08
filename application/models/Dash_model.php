@@ -4,12 +4,13 @@ public $catList='';
 
 
 
-  public function getAllCategory($id = NULL, $level = 0, $first_call = true) {
+  public function getAllCategory($id = NULL, $level = 0, $first_call = true,$lang) {
     $this->catList .=  $first_call == true ? '<ol class="sortable">' : '<ol>';
     $call = $first_call == true ? false : false;
     $id = isset($id) ? $id : 0;
     $objectMenu=array();
     $this->db->select('m.id,m.category_name,m.order_cat');
+    $this->db->where('language',$lang);
     $this->db->from('categories_tbl m');
     //$this->db->where('m.menu_parent',$id);
     $this->db->order_by('m.order_cat','asc');
@@ -234,7 +235,7 @@ return $res->result_array();
 
     $this->db->select('*');
     $this->db->where('language',$lang);
-    $this->db->order_by('id','ASC');
+    $this->db->order_by('order_cat','ASC');
     $q=$this->db->get($tbl);
     return $q->result_array();
 

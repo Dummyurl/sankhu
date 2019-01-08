@@ -114,18 +114,20 @@ $(document).ready(function(){
 
 
 $('#checkbox_div').on('click','.chbox',function(){
-console.log($(this).is(':checked'));
+// console.log($(this).is(':checked'));
 if($(this).is(':checked')){
   //console.log('checked');
 
 var Class = $(this).attr('id');
-console.log(Class);
+// console.log(Class);
 $('.'+Class).attr('checked',true);
 
 
 }else{
-console.log('not-checked');
+  var Class = $(this).attr('id');
+// console.log('not-checked');
 $('.'+Class).attr('checked',false);
+$('#'+Class).attr('checked',false);
 }
 
 
@@ -157,7 +159,7 @@ url: "<?php echo base_url(); ?>MapController/getcolumnsselected?tbl="+id,
 
 success: function(html)
 {
-console.log(html);
+// console.log(html);
 $("#checkbox_div").html(html);
 }
 });

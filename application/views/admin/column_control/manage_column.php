@@ -87,8 +87,12 @@
 
 
       }else{
-      console.log('not-checked');
+          var Class = $(this).attr('id');
+      // console.log('not-checked');
+      // console.log($('#'+Class));
       $('.'+Class).attr('checked',false);
+      $('#'+Class).attr('checked',false);
+
       }
 
 
@@ -108,7 +112,7 @@
         //var tbl='<?php echo $table ?>'
         //var id=document.getElementById("getcolumns").value;
         // var dataString = 'id='+ id;
-        console.log(id);
+        //console.log(id);
         $("#checkbox_div").html("");
 
         $.ajax
@@ -117,7 +121,7 @@
           url: "<?php echo base_url(); ?>MapController/getcolumnss?tbl="+id,
           success: function(html)
           {
-          console.log(html);
+        //  console.log(html);
           $("#checkbox_div").html(html);
           }
         });

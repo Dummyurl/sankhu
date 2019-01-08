@@ -271,6 +271,7 @@ class TableController extends CI_Controller
   }
 
   public function get_csv_dataset(){
+    $this->load->model('Map_model');
 
     $count_dataset=$this->Dash_model->get_count_views_datasets($this->input->get('tbl'));
     $add_count_dataset=$count_dataset['download']+1;
@@ -290,9 +291,14 @@ class TableController extends CI_Controller
     $this->load->dbutil();
     $this->load->helper('file');
     $this->load->helper('download');
-    $d=$this->Table_model->get_lang($tbl);
+    $data_jsn=$this->Map_model->get_jsn($tbl);
+    $data_array=json_decode($data_jsn['column_control'],TRUE);
+
+    $report=$this->Table_model->get_data_con($data_array,$tbl);
+
+    //$report=$seected_col;
     /* get the object   */
-    $report = $this->Table_model->get_as($d,$tbl);
+    //$report = $this->Table_model->get_as($d,$tbl);
 
     /*  pass it to db utility function  */
     $new_report = $this->dbutil->csv_from_result($report);
@@ -310,6 +316,19 @@ class TableController extends CI_Controller
 
 
 public function get_geojson_dataset(){
+  $this->load->model('Map_model');
+
+  $tbl=$this->input->get('tbl');
+  $data_jsn=$this->Map_model->get_jsn($tbl);
+  $data_array=json_decode($data_jsn['column_control'],TRUE);
+  $geo_array=array(
+'col'=>'the_geom',
+'name'=>'the_geom',
+
+  );
+array_push($data_array['a'],$geo_array);
+  //var_dump($data_array['a']);
+
 
   $count_dataset=$this->Dash_model->get_count_views_datasets($this->input->get('tbl'));
   $add_count_dataset=$count_dataset['download']+1;
@@ -327,9 +346,20 @@ public function get_geojson_dataset(){
   // $this->load->dbutil();
   $this->load->helper('file');
    $this->load->helper('download');
-  $d=$this->Table_model->get_lang($tbl);
+
+
+ //   $geo_array=array(
+ // 'col'=>'the_geom',
+ // 'name'=>'the_geom',
+ //
+ //   );
+ // array_push($data_array['a'],$geo_array);
+ $data_jsn=$this->Map_model->get_jsn($tbl);
+ $data_array=json_decode($data_jsn['column_control'],TRUE);
+ $report=$this->Table_model->get_data_geojson($data_array,$tbl);
+
   /* get the object   */
-  $report = $this->Table_model->get_asjson($d,$tbl);
+  //$report = $this->Table_model->get_asjson($d,$tbl);
   $dataset_data=$report->result_array();
   // var_dump($dataset_data);
   // exit();
@@ -360,6 +390,8 @@ public function get_geojson_dataset(){
 
 $dataset_geojson=json_encode($dataset_array);
 
+
+
   /*  pass it to db utility function  */
   // $new_report = $this->dbutil->csv_from_result($report);
    $name = $tbl.'.geojson';
@@ -373,7 +405,7 @@ $dataset_geojson=json_encode($dataset_array);
 }
 
 public function get_kml_dataset(){
-
+$this->load->model('Map_model');
 
   //
   //
@@ -389,12 +421,11 @@ public function get_kml_dataset(){
   //
   // $this->load->dbutil();
 
-  $d=$this->Table_model->get_lang($tbl);
-  /* get the object   */
-  $report = $this->Table_model->get_asjson($d,$tbl);
+  $data_jsn=$this->Map_model->get_jsn($tbl);
+  $data_array=json_decode($data_jsn['column_control'],TRUE);
+  $report=$this->Table_model->get_data_geojson($data_array,$tbl);
   $dataset_data=$report->result_array();
-  // var_dump($dataset_data);
-  // exit();
+
 
   foreach($dataset_data as $data){
 

@@ -931,7 +931,10 @@ public function change_order_caegory()
    $this->data = array();
    $this->body['admin']=$this->session->userdata('user_type');
    //admin check
-   $this->data['category']=$this->Dash_model->getAllCategory();
+   // var_dump ();
+   // die;
+   $lang_cat=$_SESSION['cat_language'];
+   $this->data['category']=$this->Dash_model->getAllCategory('fasle','fasle','false',$lang_cat);
    //echo "<pre>";print_r($this->data['category']);die;
   //$this->body['categorytable'] = $this->general->get_tbl_data_result('order_cat,id,category_name','categories_tbl',false,'order_cat');
    $this->load->view('admin/header',$this->body);

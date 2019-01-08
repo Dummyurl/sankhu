@@ -243,7 +243,7 @@ p.about {
 			                            },
 			                            success: function (result) {
 
-																	//console.log(JSON.parse(result));
+																	console.log(JSON.parse(result));
 																	var result_parsed=JSON.parse(result);
 																	var kml = tokml(result_parsed); // json is geojson here
 																	console.log(kml);

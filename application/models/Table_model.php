@@ -34,6 +34,36 @@ class Table_model extends CI_Model {
 
 }
 
+
+
+public function get_data_con($d,$tbl){
+
+  for($i=0; sizeof($d['a'])>$i; $i++){
+  $this->db->select($d['a'][$i]['col'].' AS '. $d['a'][$i]['name']);
+  }
+
+  $this->db->order_by('id','ASC');
+  $q=$this->db->get($tbl);
+
+  return $q;
+
+
+}
+
+public function get_data_geojson($d,$tbl){
+
+  for($i=0; sizeof($d['a'])>$i; $i++){
+  $this->db->select($d['a'][$i]['col'].' AS '. $d['a'][$i]['name']);
+  }
+$this->db->select('ST_AsGeoJSON(the_geom)');
+  $this->db->order_by('id','ASC');
+  $q=$this->db->get($tbl);
+
+  return $q;
+
+
+}
+
 public function get_tables_data($tbl){ //get data of table
 
   $this->db->select('*');

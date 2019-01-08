@@ -168,11 +168,11 @@ class MainController extends CI_Controller
         $this->body['site_info'] = "";
         $this->body['feature']=$this->Main_model->get_feature();
         $this->body['feat_lang']='en';
-        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language,'public_view'=>'1'));
+        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language,'public_view'=>'1'),'order_cat');
        // Exposure_Data
-        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language,'public_view'=>'1'),'id');
-        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language,'public_view'=>'1'),'id');
-        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language,'public_view'=>'1'),'id');
+        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language,'public_view'=>'1'),'order_cat');
+        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language,'public_view'=>'1'),'order_cat');
+        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language,'public_view'=>'1'),'order_cat');
         $tbl_list=array();
         foreach($cat_tbl_list as $list){
             if($this->db->table_exists($list['category_table'])) {
@@ -185,10 +185,10 @@ class MainController extends CI_Controller
         $language='nep';
         $this->body['feature']=$this->Main_model->get_feature_nep();
         $this->body['feat_lang']='nep';
-        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language,'public_view'=>'1'));
-        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language,'public_view'=>'1'),'id');
-        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language,'public_view'=>'1'),'id');
-        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language,'public_view'=>'1'),'id');
+        $this->body['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language,'public_view'=>'1'),'order_cat');
+        $this->body['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language,'public_view'=>'1'),'order_cat');
+        $this->body['baseline_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Baseline_Data','language'=>$language,'public_view'=>'1'),'order_cat');
+        $cat_tbl_list=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('language'=>$language,'public_view'=>'1'),'order_cat');
         $tbl_list=array();
       foreach($cat_tbl_list as $list){
         array_push($tbl_list,$this->Main_model->count_dat_tbl($list['category_table']));

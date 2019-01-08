@@ -20,9 +20,16 @@
 
         //echo $tbl;
 
-        $d=$this->Map_model->get_lang_map_data($tbl);
+        $data_jsn=$this->Map_model->get_jsn($tbl);
+        $data_array=json_decode($data_jsn['column_control'],TRUE);
 
-        $this->body['data']=$this->Map_model->get_as_map_data($d,$tbl);
+        $seected_col=$this->Map_model->get_data_con($data_array,$tbl);
+
+        $this->body['data']=$seected_col;
+
+        // $d=$this->Map_model->get_lang_map_data($tbl);
+        //
+        // $this->body['data']=$this->Map_model->get_as_map_data($d,$tbl);
 
         // echo "<pre>"; print_r($this->body['data']);die;
         $this->data['site_info']=$this->Report_model->site_setting();
@@ -71,17 +78,16 @@
         $this->body['data']='';
         $this->data['site_info']=$this->Report_model->site_setting();
         if($tbl){
-          //
-          // $data_jsn=$this->Map_model->get_jsn($tbl);
-          // $data_array=json_decode($data_jsn['column_control'],TRUE);
-          //  var_dump($data_jsn);
-          // $seected_col=$this->Map_model->get_data_con($data_array,$tbl);
-          // // var_dump($seected_col);
-          // // die;
-          // $this->body['data']=$seected_col;
-            //echo $tbl;
-        $d=$this->Map_model->get_lang_map_data($tbl);
-        $this->body['data']=$this->Map_model->get_as_map_data($d,$tbl);
+
+          $data_jsn=$this->Map_model->get_jsn($tbl);
+          $data_array=json_decode($data_jsn['column_control'],TRUE);
+
+          $seected_col=$this->Map_model->get_data_con($data_array,$tbl);
+
+          $this->body['data']=$seected_col;
+
+        // $d=$this->Map_model->get_lang_map_data($tbl);
+        // $this->body['data']=$this->Map_model->get_as_map_data($d,$tbl);
         // echo "<pre>"; print_r($this->body['data']);die;
         //var_dump($this->body['data']);
         //language
@@ -429,7 +435,7 @@
 
         //views add
         $count_dataset=$this->Dash_model->get_count_views_datasets($this->input->get('tbl'));
-    
+
         $count=$this->Report_model->get_count_views('map');
 
         $add_count=$count['views_count']+1;
@@ -615,14 +621,15 @@
                 }
                 //  redirect('manage_popup?tbl='.$table);
             }else{
+              var_dump(json_encode($_POST));
+
                 $table=$_POST['table'];
                 unset($_POST['submit']);
                 unset($_POST['table']);
                 //echo "inside insert";echo "<pre>"; print_r($this->input->post());die;
                 //var_dump($_POST); echo $table;exit();
                 $aa=array();
-                var_dump($_POST);
-                die;
+
                 foreach($_POST as $row) {
                     //var_dump(json_encode($row));
                     //array design
@@ -636,7 +643,8 @@
                 $data= array(
                     'column_control'=>json_encode($ab),
                 );
-              //  var_dump($data);
+               // var_dump($data);
+               //   die;
 
                 //echo "call";  die;
                 $this->Map_model->update_popup($table,$data);
@@ -706,9 +714,9 @@
             unset($_POST['table']);
 
 
-            //var_dump($_POST);
-            //echo $table;
-            //exit();
+            // var_dump(json_encode($_POST));
+            // echo $table;
+            // exit();
             $aa=array();
             foreach($_POST as $row) {
 

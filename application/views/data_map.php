@@ -153,6 +153,41 @@
      transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
      transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
  }
+
+ /*  data table new css */
+ table.dataTable {
+   margin-top: 15px;
+ }
+
+ .dt-buttons{
+   display: inline-block;
+ }
+
+ .dataTables_filter{
+   display: inline-block;
+   position: absolute;
+   left: 865px;
+       width: fit-content !important;
+ }
+
+ .dataTables_paginate{
+
+   float: left !important;
+   margin-left: 640px;
+ }
+
+ .body-container{
+
+   margin-top: 10px;
+   background: white;
+ }
+ .dt-button{
+   color: white;
+ background: #0056b3;
+ border: 0px;
+ padding: 5px 15px 5px 15px;
+ margin-right: 5px;
+ }
 </style>
 
 
