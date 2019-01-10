@@ -1114,7 +1114,9 @@ li.basemap.chevron1{
 /* a, a:visited, a:hover, a:active, a:focus {
       text-decoration: none;
     } */
-
+    #eventoutput{
+    display:none;
+    }
 </style>
 
 
