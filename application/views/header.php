@@ -56,6 +56,7 @@
   <link rel="stylesheet" href="<?php echo base_url();?>assets/css/leaflet.label.css">
   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/leaflet.label.js"></script>
+  <!-- <script type="text/javascript" src="<?php echo base_url();?>assets/js/loadingoverlay.min.js"></script> -->
 
   <script src="<?php echo base_url();?>assets/js/carousels.js"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/sitemapstyler.js"></script>

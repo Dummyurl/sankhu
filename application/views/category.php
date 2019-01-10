@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/popuptableinmap.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/leaflet-measure.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
 
@@ -11,6 +12,8 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
 
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/leaflet.label.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/loadingoverlay.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/leaflet-measure.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/changunarayan.js"></script>
 <style>
 a#viewall {
@@ -41,7 +44,7 @@ margin-left: -505px !important;
   margin-top: 10px;
 }
 .leaflet-left{
-  left: 21.5%;
+  left: 300px;
 }
 .leaflet-right{
   /*right:260px;*/
@@ -1038,7 +1041,79 @@ li.basemap.chevron1{
   cursor: pointer;
 }
 
+/* cs overlay div */
+.info {
+    background-color: white;
 
+    height: 145px;
+    width: 360px;
+    padding: 10px;
+}
+
+#info_head {
+    width: 100%;
+    height: 30px;
+    background-color: #f1f1f1;
+    padding: 5px;
+}
+
+.la-close {
+    float: right;
+    mar: 2px;
+    margin-top: -12px;
+    margin-right: -12px;
+    font-weight: bold;
+}
+
+#info_body {
+    padding: 5px;
+    padding-top: 10px;
+    overflow-y: auto;
+    height:97px;
+}
+
+.info_table{
+
+  height:97px;
+
+}
+
+/* refresh icon css */
+.refresh-icon {
+    background-color: #ffffff;
+    margin-left: 0px;
+    padding: 7px;
+    border: 2px solid #c7c7c7;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* measure tool css */
+
+.leaflet-bar a:hover{
+  display: initial;
+}
+.js-interaction {
+    display: block !important;
+    padding: 0px 0px 0px 6px !important;
+}
+.js-toggle{
+  display:none !important;
+  width:0px !important;
+  height:0px !important;
+}
+ /* .leaflet-control-measure{
+  width:34px ;
+  height: 34px ;
+
+} */
+.leaflet-control-measure a.start{
+  background-size: 16px 16px !important;
+  z-index: 999;
+}
+/* a, a:visited, a:hover, a:active, a:focus {
+      text-decoration: none;
+    } */
 
 </style>
 
@@ -1253,7 +1328,7 @@ $(document).ready(function(){
 
                           <!-- marker div -->
 
-                          <a data-toggle="modal" href="#<?php echo $data['category_table'];?>_" class = "filterthis" name="<?php echo $data['category_name'];?>" id="<?php echo $data['category_table'];?>">
+                          <a data-toggle="modal" href="#<?php echo $data['category_table'];?>_" class = "filterthis" name="<?php echo $data['category_name'];?>" id="<?php echo $data['category_table'];?>_filtericon">
                             <img src="<?php echo base_url()?>assets/img/filter.png" class="filter-icon"></a>
 
                             <?php	if($data['default_load']=='0'){ ?>
@@ -1390,7 +1465,8 @@ $(document).ready(function(){
                         </div>
                       </div>
 
-                      <button class="btn btn-default btn-sm applie applied_filter" data-toggle="modal" data-target="#<?php echo $data['category_table']?>_mod_dat">Apply</button>
+                      <!-- <button class="btn btn-default btn-sm applie applied_filter" data-toggle="modal" data-target="#<?php echo $data['category_table']?>_mod_dat">Apply</button> -->
+                      <button class="btn btn-default btn-sm applie applied_filter" >Apply</button>
                     </div>
                     <!--  -->
                   </div>
@@ -1679,7 +1755,7 @@ $(document).ready(function(){
 
             <!-- marker div -->
 
-            <a data-toggle="modal" href="#<?php echo $data['category_table'];?>_" class = "filterthis" name="<?php echo $data['category_name'];?>" id="<?php echo $data['category_table'];?>">
+            <a data-toggle="modal" href="#<?php echo $data['category_table'];?>_" class = "filterthis" name="<?php echo $data['category_name'];?>" id="<?php echo $data['category_table'];?>_filtericon">
               <img src="<?php echo base_url()?>assets/img/filter.png" class="filter-icon"></a>
 
               <?php	if($data['default_load']=='0'){ ?>
@@ -1816,7 +1892,8 @@ $(document).ready(function(){
           </div>
         </div>
 
-        <button class="btn btn-default btn-sm applie applied_filter" data-toggle="modal" data-target="#<?php echo $data['category_table']?>_mod_dat">Apply</button>
+        <!-- <button class="btn btn-default btn-sm applie applied_filter" data-toggle="modal" data-target="#<?php echo $data['category_table']?>_mod_dat">Apply</button> -->
+<button class="btn btn-default btn-sm applie applied_filter" >Apply</button>
       </div>
       <!--  -->
     </div>
@@ -2107,7 +2184,7 @@ $(document).ready(function(){
 
             <!-- marker div -->
 
-            <a data-toggle="modal" href="#<?php echo $data['category_table'];?>_" class = "filterthis" name="<?php echo $data['category_name'];?>" id="<?php echo $data['category_table'];?>">
+            <a data-toggle="modal" href="#<?php echo $data['category_table'];?>_" class = "filterthis" name="<?php echo $data['category_name'];?>" id="<?php echo $data['category_table'];?>_filtericon">
               <img src="<?php echo base_url()?>assets/img/filter.png" class="filter-icon"></a>
 
               <?php	if($data['default_load']=='0'){ ?>
@@ -2244,7 +2321,8 @@ $(document).ready(function(){
           </div>
         </div>
 
-        <button class="btn btn-default btn-sm applie applied_filter" data-toggle="modal" data-target="#<?php echo $data['category_table']?>_mod_dat">Apply</button>
+        <!-- <button class="btn btn-default btn-sm applie applied_filter" data-toggle="modal" data-target="#<?php echo $data['category_table']?>_mod_dat">Apply</button> -->
+       <button class="btn btn-default btn-sm applie applied_filter" >Apply</button>
       </div>
       <!--  -->
     </div>
@@ -2548,6 +2626,10 @@ $(document).ready(function(){
   <!-- sub-data pop -->
 
 </div>
+ <pre id="eventoutput">...</pre>
+
+<!-- <div id='info' > </div> -->
+
 
 
 
@@ -2624,12 +2706,15 @@ $(document).ready(function(){
 
   //map part
 
-  var map = L.map('map').setView([map_lat,map_long], map_zoom);
+  var map = L.map('map',{
+    //measureControl: true
+  }).setView([map_lat,map_long], map_zoom);
   map.attributionControl.addAttribution("<a href='http://www.naxa.com.np' title = 'Contributor'>NAXA</a>");
   // map.scrollWheelZoom.disable();
   map.options.maxBounds;  // remove the maxBounds object from the map options
   //map.options.minZoom = 9;
-
+  var measureControl = L.control.measure({position:'topleft', primaryLengthUnit: 'meters', secondaryLengthUnit: 'feet', primaryAreaUnit: 'sqmeters', secondaryAreaUnit: 'hectares', activeColor: 'blue', completedColor: 'red'});
+  measureControl.addTo(map);
   //map.options.minZoom = 14;
   //console.log("adfasfsadfasfasdfasfdasdfsafasdfsafasfasfsafsa");
   var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -2664,7 +2749,30 @@ $(document).ready(function(){
 
   map.addLayer(osm);
   layerswitcher = L.control.layers(baseLayers, {}, {collapsed: true}).addTo(map);
+  L.control.scale({position:'bottomright'}).addTo(map);
 
+//measure control
+  map.on('measurefinish', function(evt) {
+        writeResults(evt);
+      });
+
+    function writeResults(results) { console.log(results);
+        document.getElementById('eventoutput').innerHTML = JSON.stringify(
+          {
+            area: results.area,
+            areaDisplay: results.areaDisplay,
+            lastCoord: results.lastCoord,
+            length: results.length,
+            lengthDisplay: results.lengthDisplay,
+            pointCount: results.pointCount,
+            points: results.points
+          },
+          null,
+          2
+        );
+      }
+    // })(window.L, window.document);
+//measure control end
   function underscoreToSpace(naaaaame) {
 
     var underscored = naaaaame;
@@ -2674,6 +2782,8 @@ $(document).ready(function(){
     return spaced;
 
   }
+
+
 
 
   styles=JSON.parse('<?php echo $style ?>');
@@ -3031,6 +3141,7 @@ $(document).ready(function(){
     }
     else{
       map.addLayer(layerClicked);
+      //map.fitBounds(layerClicked.getBounds(),{padding:[100,100]});
 
       $(".leaflet-right").css("right","260px");
       $('#right-panel-toggle').css('display','block');
@@ -3226,9 +3337,11 @@ $(document).ready(function(){
     //$('.applied-list').html('');
     $(".selected_filter_ex").val('');
     $(".selected_filter_query").val('');
-    var tbl=($(this).attr("id"));
+    var tbl1=($(this).attr("id"));
+    var tbl= tbl1.replace('_filtericon','');
+
     var name_cat=($(this).attr("name"));
-    console.log(name_cat);
+  //  console.log(name_cat);
 
 
 
@@ -3269,7 +3382,8 @@ $(document).ready(function(){
 
     var col_name=$(this).val();
     var name=$(this).attr('id');
-
+var name_cat_table =$('.filterthis_side_p').attr('id');
+console.log(name_cat_table);
     var data_tbl=$(this).attr('name');
     $.ajax({
       type: "GET",
@@ -3293,15 +3407,16 @@ $(document).ready(function(){
         for(var i=0;i<values.length;i++){
 
 
-          //console.log(values[i][col_name]);
-
+          console.log(values[i][col_name]);
+          if(values[i][col_name] != null){
           $(".filter_values").append('<div class="col-md-12"><label><input class="filter_value_item" type="radio" name="" value="'+values[i][col_name]+'"disabled/><p class="exp text-center">'+values[i][col_name]+'</p></label></div>');
-
+}
 
 
         }
 
         $(".selected_filter_ex").val(name);
+        $(".selected_filter_ex").attr('id',name_cat_table);
         $(".selected_filter_query").val(col_name);
         $(".selected_filter_query").attr('id',data_tbl);
         //  console.log($(".selected_filter_ex").val());
@@ -3337,9 +3452,56 @@ $(document).ready(function(){
 
 
 
+
+//info div for filters
+var info = L.control().setPosition('bottomleft');
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = '<div id="info_head"><i class="la la-close"></i><h7><b>Applied Filters</b></h7></div><div id="info_body">  </div>';
+
+};
+info.addTo(map);
+$('.info').css('display','none');
+//end
+
+
+var refresh = L.control().setPosition('topleft');
+
+refresh.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'refresh'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+refresh.update = function (props) {
+    this._div.innerHTML = '<i class="la la-refresh refresh-icon"></i>';
+
+};
+refresh.addTo(map);
+
+
+//refresh click
+$('#map').on('click','.refresh-icon',function(){
+  map.setView([map_lat,map_long], map_zoom);
+
+});
+//referesh end
+
+
+
   var count_filter = 0;
   applied_filter_tbl_list=[];
   $('.applied_filter').on('click',function(){
+    $('.close').trigger('click');
+    $('#map').LoadingOverlay("show");
 
     //console.log('click');
     $('#table_filter >thead tr').html('');
@@ -3348,6 +3510,7 @@ $(document).ready(function(){
     var show_qry=$(".selected_filter_ex").val();
     var qry=$(".selected_filter_query").val();
     var qry_tbl=$(".selected_filter_query").attr('id');
+    var qry_tbl_name=$(".selected_filter_ex").attr('id');
 
     $('#'+qry_tbl+'_treeview').append('<div class="form-check" id="'+qry_tbl+count_filter+'filter">'+
 
@@ -3355,14 +3518,22 @@ $(document).ready(function(){
 
     '</div>');
 
-    $('h6#filter_tbl_name').html(""+show_qry+"");
+   $('h4#filter_tbl_name').html(""+show_qry+"");
 
 
 
-    $('.applied-list').append('<tr id = "'+qry_tbl+'" class="'+qry_tbl+count_filter+'list"><th scope="row"></th><td>'+qry_tbl+'</td><td>'+show_qry+'</td><td><i class="fa fa-trash delete_filter" id="'+qry_tbl+count_filter+'"></i></td></tr>');
+    $('.applied-list').append('<tr id = "'+qry_tbl+'" class="'+qry_tbl+count_filter+'list"><th scope="row"></th><td>'+qry_tbl_name+'</td><td>'+show_qry+'</td><td><i class="la la-eye view_modal_filter" data-toggle="modal" data-target="#'+qry_tbl+'_mod_dat"></i></td><td><i class="fa fa-trash delete_filter" id="'+qry_tbl+count_filter+'"></i></td></tr>');
+
     applied_filter_tbl_list.push(qry_tbl);
     //console.log('result');
 
+//applied list div overlay start
+
+
+
+$('#info_body').append('<table class="table info_table"><tbody class="applied-list"><tr id = "'+qry_tbl+'" class="'+qry_tbl+count_filter+'list"><th scope="row"></th><td>'+qry_tbl_name+'</td><td>'+show_qry+'</td><td><i class="la la-eye view_modal_filter" data-toggle="modal" data-target="#'+qry_tbl+'_mod_dat"></i></td><td><i class="fa fa-trash delete_filter" id="'+qry_tbl+count_filter+'"></i></td></tr></tbody></table>');
+$('.info').css('display','block');
+//end applied list
     var success_qry ;
     success_qry = 0;
 
@@ -3382,7 +3553,7 @@ $(document).ready(function(){
         //console.log(result);
 
         var data=JSON.parse(result);
-        console.log(data);
+      //  console.log(data);
         var modal_table=JSON.parse(data.table_data);
         map_json=JSON.parse(data.geojson);
         sub_style=JSON.parse(data.style);
@@ -3395,7 +3566,7 @@ $(document).ready(function(){
         // console.log(popup_content_parsed);
 
 
-        document.getElementById("filter_tbl_name").innerHTML = ''+qry;
+        //document.getElementById("filter_tbl_name").innerHTML = ''+qry;
         //$('h4').html(show_qry);
 
         for(var i=0;i<modal_table.length;i++){
@@ -3404,7 +3575,7 @@ $(document).ready(function(){
           tbl_body += '<tr>';
 
           $.each(modal_table[i], function(k, v) {
-            console.log(k);
+          //  console.log(k);
 
             if(k=='the geom'){
 
@@ -3493,7 +3664,7 @@ $(document).ready(function(){
 
 
             layer.on('click',function(){
-              console.log(popUpContent);
+            //  console.log(popUpContent);
               $('#right-panel-toggle').css('display','block');
               $("#summary_container").css('display','none');
               $("#popup_container").css('display','block');
@@ -3502,6 +3673,7 @@ $(document).ready(function(){
             });
           }
         }).addTo(map);
+        map.fitBounds(window[qry_tbl+count_filter].getBounds());
         count_filter = count_filter+1;
         map.removeLayer(window[table_n]);
 
@@ -3529,42 +3701,75 @@ $(document).ready(function(){
     }else{
 
     }
-    console.log('#');
-    console.log($('#'+qry_tbl).children());
+    //console.log('#');
+    //console.log($('#'+qry_tbl).children());
 
     //changing filter icon  after filter
-    $('#'+qry_tbl).children('img')[0].src='http://localhost/vso/assets/img/';
+//    console.log($('#'+qry_tbl+'_filtericon').find('img'));
+    $('#'+qry_tbl+'_filtericon').find('img')[0].src='http://localhost/vso/assets/img/after_filter.png';
+
+//
+
+
+$('#map').LoadingOverlay("hide", true);
+
 
   });
 
+
+//deleting filter info function
+function deletefilterinfo(id,mapLayerId,classs,deleted_tr_id){
+//  console.log($("#"+id));
+  $("#"+id).remove();
+$('.applied-list > .'+classs).remove();
+  map.removeLayer(window[mapLayerId]);
+//  console.log(deleted_tr_id);
+  //console.log(applied_filter_tbl_list);
+  if(jQuery.inArray(deleted_tr_id, applied_filter_tbl_list) !== -1){
+    var index_id = jQuery.inArray(deleted_tr_id, applied_filter_tbl_list);
+    applied_filter_tbl_list.splice(index_id,1);
+    if(jQuery.inArray(deleted_tr_id, applied_filter_tbl_list) == -1){ console.log("entereeeeeeeeeeeeeeeeeeeeed");
+      $('#'+deleted_tr_id+'_filtericon').find('img')[0].src='http://localhost/vso/assets/img/filter.png';
+    }
+  }
+//  console.log(applied_filter_tbl_list.length);
+if(applied_filter_tbl_list.length == 0){
+  $('.info').css('display','none');
+}
+
+}
+//end
+
   //deleting the row  of filter list
   $('.applied-list').on('click','tr > td > .delete_filter',function(){
-
+//console.log('here');
     //console.log($(this).closest('tr'));
     //$(this).closest('tr').remove();
     var classs = $(this).closest('tr')[0].className;
-    console.log($(this).closest('tr')[0].id);
+    //console.log($(this).closest('tr')[0].id);
 
-    $('.applied-list > .'+classs).remove();
+
     var id = $(this)[0].id+"filter";
     var mapLayerId = $(this)[0].id;
-    $("#"+id).remove();
-
-    map.removeLayer(window[mapLayerId]);
 
     var deleted_tr_id = $(this).closest('tr')[0].id;
-    console.log(deleted_tr_id);
-    if(jQuery.inArray(deleted_tr_id, applied_filter_tbl_list) !== -1){
-      var index_id = jQuery.inArray(deleted_tr_id, applied_filter_tbl_list);
-      applied_filter_tbl_list.splice(index_id,1);
-      if(jQuery.inArray(deleted_tr_id, applied_filter_tbl_list) == -1){ console.log("entereeeeeeeeeeeeeeeeeeeeed");
-      $('#'+deleted_tr_id).children('img')[0].src='http://localhost/vso/assets/img/filter.png';
-    }
-  }
 
+    deletefilterinfo(id,mapLayerId,classs,deleted_tr_id);
 
 
 });
+
+  $('.info').on('click','tr > td > .delete_filter',function(){
+    var id = $(this)[0].id+"filter";
+    var classs = $(this).closest('tr')[0].className;
+    var mapLayerId = $(this)[0].id;
+
+    var deleted_tr_id = $(this).closest('tr')[0].id;
+  //  console.log(deleted_tr_id);
+    deletefilterinfo(id,mapLayerId,classs,deleted_tr_id);
+
+  });
+
 //filter
 
 
@@ -3581,7 +3786,7 @@ $('#close-panel-left').click(function(){
       $(".leaflet-left").css("left","10px");
     }
     else {
-      $(".leaflet-left").css("left","21.5%");
+      $(".leaflet-left").css("left","300px");
     }
   });
   $(this).toggleClass('transform');
@@ -3611,7 +3816,7 @@ $('.specific').click(function(){
 
 //sub cat show
 $('#'+selected_category+"_sub").siblings("ul").toggleClass('show');
-console.log(selected_category);
+//console.log(selected_category);
 
 
 </script>
