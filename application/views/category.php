@@ -3708,7 +3708,7 @@ $('.info').css('display','block');
 
     //changing filter icon  after filter
 //    console.log($('#'+qry_tbl+'_filtericon').find('img'));
-    $('#'+qry_tbl+'_filtericon').find('img')[0].src='http://localhost/vso/assets/img/after_filter.png';
+    $('#'+qry_tbl+'_filtericon').find('img')[0].src='<?php echo base_url()?>assets/img/after_filter.png';
 
 //
 
