@@ -5,10 +5,10 @@ class Upload_model extends CI_Model {
 
 
 
-public function get_emergency_con($cat){
+public function get_emergency_con($cat,$emerg_lang){
 
 $this->db->select('*');
-$this->db->where('language','en');
+$this->db->where('language',$emerg_lang);
 $this->db->where('category',$cat);
 $query=$this->db->get('emergency_contact');
 return $query->result_array();
@@ -28,10 +28,10 @@ return $query->result_array();
 }
 
 
-public function get_emergency_per($cat){
+public function get_emergency_per($cat,$emerg_per_lang){
 
 $this->db->select('*');
-$this->db->where('language','en');
+$this->db->where('language',$emerg_per_lang);
 $this->db->where('category',$cat);
 $query=$this->db->get('emergency_personnel');
 return $query->result_array();

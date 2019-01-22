@@ -1117,6 +1117,7 @@ li.basemap.chevron1{
     #eventoutput{
     display:none;
     }
+
 </style>
 
 
@@ -3731,7 +3732,7 @@ $('.applied-list > .'+classs).remove();
     var index_id = jQuery.inArray(deleted_tr_id, applied_filter_tbl_list);
     applied_filter_tbl_list.splice(index_id,1);
     if(jQuery.inArray(deleted_tr_id, applied_filter_tbl_list) == -1){ console.log("entereeeeeeeeeeeeeeeeeeeeed");
-      $('#'+deleted_tr_id+'_filtericon').find('img')[0].src='http://localhost/vso/assets/img/filter.png';
+      $('#'+deleted_tr_id+'_filtericon').find('img')[0].src='<?php echo base_url()?>assets/img/filter.png';
     }
   }
 //  console.log(applied_filter_tbl_list.length);

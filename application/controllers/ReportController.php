@@ -19,7 +19,8 @@ class ReportController extends CI_Controller
     if(isset($_POST['submit'])){
 
 
-      //var_dump($_POST);
+    //  var_dump($_POST);
+
       $this->input->post('from_date');
       $this->input->post('to_date');
       $this->input->post('category');
@@ -51,8 +52,8 @@ class ReportController extends CI_Controller
 
       $queryy=$this->db->query($query);
       $filter= $queryy->result_array();
-
-
+     //var_dump($filter);
+  //exit();
 
       if($filter==NULL){
         $filter=$this->Report_model->get_report_data();

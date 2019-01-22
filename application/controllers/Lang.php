@@ -25,6 +25,31 @@ redirect($url);
 
 }
 
+
+public function admin_lang(){
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  			$lang=$this->input->post('language');
+  			if($lang=='nep')
+  			{
+  				$this->session->set_userdata('Language','nep');
+  			}
+  			if($lang=='en')
+  			{
+  				$this->session->set_userdata('Language','en');
+  			}
+  			print_r(json_encode(array('status'=>'success','message'=>'Language Set successfully')));
+  			 exit;
+  		}
+  		else{
+  	    	print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
+  	        exit;
+  	    }
+//redirect($url);
+
+}
+
+
 public function test_lang(){
 
 $lang=$this->session->get_userdata('Language');

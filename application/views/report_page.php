@@ -454,7 +454,7 @@ margin: 0;
 <?php
 
 
-$ward_nep='<option value="0" selected>वडा छान्नुहोस् </option>
+$ward_nep='<option value="" selected>वडा छान्नुहोस् </option>
 <option value="1" >वडा 1</option>
 <option value="2" >वडा 2</option>
 <option value="3" >वडा 3</option>
@@ -464,7 +464,7 @@ $ward_nep='<option value="0" selected>वडा छान्नुहोस् <
 <option value="7" >वडा 7</option>
 <option value="8" >वडा 8</option>';
 
-$ward_eng='<option value="0" selected>Select ward</option>
+$ward_eng='<option value="" selected>Select ward</option>
 <option value="1" >ward no 1</option>
 <option value="2" >ward no 2</option>
 <option value="3" >ward no 3</option>
@@ -475,7 +475,7 @@ $ward_eng='<option value="0" selected>Select ward</option>
 <option value="8" >ward no 8</option>';
 
 
-$cat_eng='<option value="0" selected>Select Category</option>
+$cat_eng='<option value="" selected>Select Category</option>
 <option value="Flood">Flood</option>
 <option value="Landslide">Landslide</option>
 <option value="Fire">Fire</option>
@@ -485,23 +485,23 @@ $cat_eng='<option value="0" selected>Select Category</option>
 <option value="Others" >Others</option>
 ';
 
-$cat_nep='<option value="0" selected>प्रकार छान्नुहोस्</option>
+$cat_nep='<option value="" selected>प्रकार छान्नुहोस्</option>
 <option value="Fire" >बाढी</option>
-<option value="Earth" >पहिरो</option>
-<option value="Water" >आगलागी</option>
-<option value="Water" >चट्याङ</option>
-<option value="Water" >फोहोर मैला</option>
-<option value="Water" >सडक</option>
+<option value="Landslide" >पहिरो</option>
+<option value="Fire" >आगलागी</option>
+<option value="Lightning" >चट्याङ</option>
+<option value="Waste" >फोहोर मैला</option>
+<option value="Road" >सडक</option>
 <option value="Others" >अन्य</option>
 ';
 
-$status_eng='<option value="0" selected>Status</option>
+$status_eng='<option value="" selected>Status</option>
 <option value="pending" >Pending</option>
 <option value="ongoing" >Ongoing</option>
 <option value="completed" >Completed</option>
 ';
 
-$status_nep='<option value="0" selected>स्थिति छान्नुहोस्</option>
+$status_nep='<option value="" selected>स्थिति छान्नुहोस्</option>
 <option value="pending">काम हुन बाकि </option>
 <option value="ongoing">काम भैरहेको </option>
 <option value="completed">काम भैसकेको </option>
@@ -560,71 +560,42 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
               <p>Citizen reports</p>
             </div>
 
-            <div class="panel-body">
+            <div class="modal_div">
+              <div class="modal fade modal_report" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" style="color: #111" class="exit">×</span><span class="sr-only">Close</span></button>
+                    <div class="container">
+                      <h3 id="incident_modal">Incident Type : </h3>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-4"><img src="" alt="image" id="img_modal" class="read-mor"></div>
+                        <div class="col-md-8" >
+                          <p id="message_modal">message</p>
+                          <div class="row sent">
+                            <div class="col-md-4" id="name_modal">Name: </div>
+                            <div class="col-md-4" id="date_modal"> Date: </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="panel-body left_panel_filter">
 
               <!-- report 1 -->
 
               <!-- report 5 -->
-              <?php foreach($report_data as $data){ ?>
 
-                <div class="news-panel clearfix report_div" value="<?php echo $data['latitude'] ;?>" name="<?php echo $data['longitude'] ;?>">
-                  <div class="row">
-                    <div class="col-md-3 blog-panel">
-                      <a href="#" class="thumbnail">
-                        <img src="<?php echo $data['photo_thumb'] ;?>" alt="image">
-                      </a>
-                    </div>
-                    <div class="fancy col-md-9">
-                      <h5><?php echo $data['incident_type'] ;?></h5>
-                      <p class="small">
-                        <?php echo $data['message'] ;?>
-                        <!-- readmore -->
-                        <a  class="naya" data-toggle="modal" data-target=".<?php echo $data['id'] ;?>_">See More</a>
-
-                        <div class="modal fade <?php echo $data['id'] ;?>_" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" style="color: #111" class="exit">×</span><span class="sr-only">Close</span></button>
-                              <div class="container">
-                                <h3>Incident Type : <?php echo $data['incident_type'] ;?></h3>
-                                <hr>
-                                <div class="row">
-                                  <div class="col-md-4"><img src="<?php echo $data['photo'] ;?>" alt="image" class="read-mor"></div>
-                                  <div class="col-md-8">
-                                    <?php echo $data['message'] ;?>
-                                    <div class="row sent">
-                                      <div class="col-md-4">Name: <?php echo $data['name'] ;?></div>
-                                      <div class="col-md-4"> Date: <?php echo $data['incident_time'] ;?></div>
-                                      <!-- <div class="col-md-4">3 Days Ago</div> -->
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- read more modal -->
-                      </p>
-
-                    </div>
-                  </div>
-                  <hr class="horz">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <ul class="list-inline tiny">
-                        <li class="list-inline-item"><i class="fa fa-list" aria-hidden="true"></i> Category: <a href="#"><?php echo $data['incident_type'] ;?></a> </li>
-                        <li class="list-inline-item"><i class="icon-calendar" aria-hidden="true"></i> Status: <a href="#"> <?php echo $data['status'] ;?></a></li>
-                        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $data['incident_time'] ;?></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-              <?php } ?>
               <!-- //end -->
-              <div class="text-center mt-3 mb-3">
+              <!-- <div class="text-center mt-3 mb-3">
                 <a href="#" title="" class="btn btn-primary btn-sm">View All <i class="la la-arrow-right"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
           <!-- problems reposrting sections ends -->
@@ -645,7 +616,8 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
         ?>
         <div id="filter-section" class="filter-wrap">
 
-          <form action="" method="post">
+          <!-- <form action="" method="post"> -->
+          <!-- <form> -->
 
             <div class="row" style="margin-left: 0; margin-right: 0;">
 
@@ -663,7 +635,7 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
 
               <div class="col-md-2 no-padding">
                 <div class="text-center dropdown-category_dropdown filter-check">
-                  <select name="ward" class="custom-select multiselect-icon">
+                  <select name="ward" id="ward_filter" class="custom-select multiselect-icon">
 
 
                     <?php
@@ -695,7 +667,7 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
 
               <div class="col-md-2 no-padding">
                 <div class="text-center dropdown-category_dropdown filter-check">
-                  <select name="incident_type" class="custom-select multiselect-icon">
+                  <select name="incident_type" id="incident_filter" class="custom-select multiselect-icon">
                     <?php
 
                     if($report_lang == 'en'){
@@ -719,7 +691,7 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
 
               <div class="col-md-2 no-padding">
                 <div class="text-center dropdown-category_dropdown filter-check">
-                  <select name="status" class="custom-select multiselect-icon">
+                  <select name="status" id="status_filter" class="custom-select multiselect-icon">
 
                                         <?php
 
@@ -742,13 +714,14 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
 
               <div class="col-md-2 no-padding">
                 <div class="text-center dropdown-category_dropdown filter-check">
-                  <button name="submit" class="btn btn-light btn-sm" type="submit"><?php echo $site_info['apply'] ?></button>
+                  <!-- <button name="submit" class="btn btn-light btn-sm" type="submit"><?php echo $site_info['apply'] ?></button> -->
+                  <button id="btn_filter" class="btn btn-light btn-sm"><?php echo $site_info['apply'] ?></button>
                 </div>
               </div>
 
 
             </div>
-          </form>
+          <!-- </form> -->
         </div>
 
         <!-- main map -->
@@ -780,101 +753,7 @@ $status_nep='<option value="0" selected>स्थिति छान्नुह
                       <div id="graphic2"></div>
                     </div>
                   </div>
-                  <!-- <ul class="chart-panel-list">
-                  <li class="chart-wrap">
-                  <h6>Ward</h6>
-                  <ul class="h-chart-list">
-                  <li>
-                  <label>Ward 1</label>
-                  <div class="progress bg-white" style="height: 13px;">
-                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </li>
-              <li>
-              <label>Ward 2</label>
-              <div class="progress bg-white" style="height: 13px;">
-              <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </li>
-          <li>
-          <label>Ward 1</label>
-          <div class="progress bg-white" style="height: 13px;">
-          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </li>
-      <li>
-      <label>Ward 2</label>
-      <div class="progress bg-white" style="height: 13px;">
-      <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-  </li>
-  <li>
-  <label>Ward 1</label>
-  <div class="progress bg-white" style="height: 13px;">
-  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-<li>
-<label>Ward 2</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-</ul>
-</li>
-<li class="chart-wrap">
-<h6>Type</h6>
-<ul class="h-chart-list">
-<li>
-<label>Fire</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-<li>
-<label>Flood</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-<li>
-<label>Fire</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-<li>
-<label>Flood</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-</ul>
-</li>
-<li class="chart-wrap">
-<h6>Status</h6>
-<ul class="h-chart-list">
-<li>
-<label>Pending</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-<li>
-<label>Ongoing</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-<li>
-<label>Completed</label>
-<div class="progress bg-white" style="height: 13px;">
-<div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</li>
-</ul>
-</li>
-</ul> -->
+
 </div>
 </div>
 </div>
@@ -960,7 +839,7 @@ $(document).ready(function(){
       $(".panel.panel-success").toggle(1000);
       $(".layer-toggle i").toggleClass("fa-chevron-right");
     });
-    var sankhu = new L.geoJson.ajax("http://sankhu.dimpnepal.org/Shankharapur.geojson", {
+    var sankhu = new L.geoJson.ajax("http://changu.dimpnepal.org/geojson/Changunarayan.geojson", {
 
       onEachFeature: function(feature,layer){
 
@@ -988,12 +867,41 @@ $(document).ready(function(){
     });
 
     var report_map = new L.GeoJSON(report_layer, {
+
       pointToLayer: function(feature, latlng) {
+        if(feature.properties.incident_type=='Fire'){
+
+       icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+        }else if(feature.properties.incident_type=='Landslide'){
+
+          icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+        }else if(feature.properties.incident_type=='Fire'){
+
+          icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+        }else if(feature.properties.incident_type=='Lightning'){
+
+          icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+        }else if(feature.properties.incident_type=='Waste'){
+
+          icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+        }else if(feature.properties.incident_type=='Road'){
+
+          icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+        }else if(feature.properties.incident_type=='Others'){
+
+          icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+        }
         icons = L.icon({
           //iconSize: [27, 27],
           iconAnchor: [13, 27],
           popupAnchor:  [2, -24],
-          iconUrl: 'https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png'
+          iconUrl: icon_url
         });
         //console.log(icon.options);
         var marker = L.marker(latlng, {icon: icons});
@@ -1002,7 +910,7 @@ $(document).ready(function(){
       },
 
       onEachFeature: function(feature, layer) {
-        console.log(feature.properties.incident_type);
+      //  console.log(feature.properties.incident_type);
         layer.bindPopup(feature.properties.incident_type);
         //feature.properties.layer_name = "transit_stops";
 
@@ -1020,66 +928,7 @@ $(document).ready(function(){
     //filter start
 
 
-    $('.report_div').click(function(){
 
-      var long =$(this).attr("name");
-      var lat =$(this).attr("value");
-      console.log(typeof lat);
-      console.log(long);
-
-      map.setView([parseFloat(lat),parseFloat(long)], 18);
-      //$.ajax({
-      //  url: 'ReportController/search?data='+srch,
-
-
-      //  success: function(response) {
-      //alert(response);
-      //var srchd= JSON.parse(response);
-      //  alert(response);
-
-
-      //     map.removeLayer(report_map);s
-      //   single_report=JSON.parse(response);
-      //
-      // console.log(parseFloat(single_report.features.geometry.coordinates[0]));
-
-      // var single_map = new L.GeoJSON(single_report, {
-      //     pointToLayer: function(feature, latlng) {
-      //       icons = L.icon({
-      //         //iconSize: [27, 27],
-      //         iconAnchor: [13, 27],
-      //         popupAnchor:  [2, -24],
-      //         iconUrl: 'https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png'
-      //       });
-      //       //console.log(icon.options);
-      //       var marker = L.marker(latlng, {icon: icons});
-      //       return marker;
-      //
-      //     },
-      //     onEachFeature: function(feature, layer) {
-      //       layer.bindPopup(feature.properties.name);
-      //       //feature.properties.layer_name = "transit_stops";
-      //
-      //     }
-      //   });
-
-      // single_map.on('data:loaded', function (data) {
-      //
-      //   map.addLayer(single_map);
-      //
-      //
-      // });
-
-      //map.setView(parseFloat(single_report.features.geometry.coordinates[1]),parseFloat(single_report.features.geometry.coordinates[0]), 18);
-
-
-      //}
-
-
-
-      //});
-
-    });
 
 
 
@@ -1087,19 +936,302 @@ $(document).ready(function(){
 
     //filter end
 
+//FILTER function
+function applyFilter(siteListArray, wardValue, incidentValue, statusValue, fromDate, toDate) {
+    for (i = siteListArray.features.length - 1; i >= 0; i--) {
+        // ||
+        //districtValue.trim()!= "Select District" ||
+        //console.log(provinceValue.trim());
+        //console.log("province "+siteListArray.features[i].properties.province_name.trim());
+        //console.log(districtValue);
+        var regioncheck = 1;
+        if (wardValue.length >= 1) {
+            //console.log(munValue);
+            // console.log("mun selected");
+            for (var a = 0; a < wardValue.length; a++) {
+                if (siteListArray.features[i].properties.ward == wardValue[a]) {
+                    regioncheck = 0;
+                    //regioncheck++;
+                }
+            }
+        } else if (wardValue.length == 0) {
+            //   //console.log("dont delete this");
+            regioncheck = 2;
+        }
+
+        //console.log(regioncheck);
+        if (regioncheck == 1) {
+          //  console.log("deleted");
+            siteListArray.features.splice(i, 1);
+        }else{
+
+            //console.log(choose_status);
+            if (statusValue.length >= 1) {
+                var status_matched = 1;
+                for (var k = 0; k < statusValue.length; k++) {
+
+                    if (siteListArray.features[i] != undefined) { //console.log(siteListArray.features[i].properties.license_type);
+                        //console.log(choose_status[k]);
+                        if (siteListArray.features[i].properties.status == statusValue[k]) { //console.log("status_entered");
+                            status_matched = 0;
+                            //console.log("inside if");
+                            //break;
+                            //console.log(progress[k]);
+                        } else { //console.log("status_not entered");
+                            status_matched++;
+                        }
+                    }
+                }
+            }
+            if (status_matched >= statusValue.length) { //console.log("progress deleted");
+                siteListArray.features.splice(i, 1);
+            } else {
+
+              if (incidentValue.length >= 1) {
+                  var incident_matched = 0;
+                  for (var k = 0; k < incidentValue.length; k++) {
+
+                      if (siteListArray.features[i] != undefined) { //console.log(siteListArray.features[i].properties.license_type);
+                          //console.log(choose_status[k]);
+                          if (siteListArray.features[i].properties.incident_type == incidentValue[k]) { //console.log("status_entered");
+                              incident_matched = 0;
+                              //console.log("inside if");
+                              //break;
+                              //console.log(progress[k]);
+                          } else { //console.log("status_not entered");
+                              incident_matched++;
+                          }
+                      }
+                  }
+              }
+              if (incident_matched >= incidentValue.length) {//console.log("progress1 deleted");
+                  siteListArray.features.splice(i, 1);
+              } else {
+
+                  if (fromDate!="" || toDate!="") {
+
+
+
+                    // console.log("varun")
+                    //console.log(form_status);
+                    var yes = 0;
+                        // console.log(choose_capacity[l]);
+                        date_max = toDate;
+                        date_min = fromDate;
+                        // console.log(capacity_max);
+                        if (siteListArray.features[i] != undefined) { //console.log(siteListArray.features[i].properties.capacity);
+                            if (siteListArray.features[i].properties.incident_time > date_min && siteListArray.features[i].properties.incident_time <= date_max) { //console.log("progress_entered");
+                                yes = 0;
+                            } else { //console.log("progress_not_entered");
+                                yes++;
+                            }
+                        }
+
+
+                if (yes>=1) {  //console.log("status deleted");
+                  siteListArray.features.splice(i, 1);
+                }
+              }
+            }
+        }
+    }
+}
+
+}
+
+function createReportList(siteListArray){
+$('.left_panel_filter').html('');
+  for(var i=0;i<siteListArray.features.length;i++){
+
+  var left_panel='<div class="news-panel clearfix report_div" value="'+siteListArray.features[i].properties.latitude+'" name="'+siteListArray.features[i].properties.longitude+'">'+
+    '<div class="row">'+
+      '<div class="col-md-3 blog-panel">'+
+        '<a href="#" class="thumbnail">'+
+          '<img src="'+siteListArray.features[i].properties.photo_thumb+'" alt="image">'+
+        '</a>'+
+      '</div>'+
+      '<div class="fancy col-md-9">'+
+        '<h5>'+siteListArray.features[i].properties.incident_type+'</h5>'+
+      '  <p class="small">'+
+          siteListArray.features[i].properties.message
+
+          +'<a  class="naya" data-toggle="modal" id="'+siteListArray.features[i].properties.id+'_seemore" data-target=".modal_report">See More</a>'+
+
+
+
+        '</p>'+
+
+      '</div>'+
+    '</div>'+
+    '<hr class="horz">'+
+    '<div class="row">'+
+      '<div class="col-md-12">'+
+        '<ul class="list-inline tiny">'+
+          '<li class="list-inline-item"><i class="fa fa-list" aria-hidden="true"></i> Category: <a href="#">'+siteListArray.features[i].properties.incident_type+'</a> </li>'+
+          '<li class="list-inline-item"><i class="icon-calendar" aria-hidden="true"></i> Status: <a href="#"> '+siteListArray.features[i].properties.status+'</a></li>'+
+          '<li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i>'+siteListArray.features[i].properties.incident_time+'</li>'+
+        '</ul>'+
+      '</div>'+
+    '</div>'+
+  '</div>'
+
+  $('.left_panel_filter').append(left_panel);
+
+  }
+
+
+}
+
+$('.left_panel_filter').on('click','.report_div',function(){
+
+  var long =$(this).attr("name");
+  var lat =$(this).attr("value");
+  //console.log(typeof lat);
+  //console.log(long);
+
+  map.setView([parseFloat(lat),parseFloat(long)], 18);
+
+});
+
+$('.left_panel_filter').on('click','.naya',function(){
+
+  var id = $(this).attr('id');
+  for(var i=0;i<report_layer.features.length;i++){
+
+    if(report_layer.features[i].properties.id+'_seemore'==id){
+
+      $('#incident_modal').html('Incident Type : '+report_layer.features[i].properties.incident_type);
+      $('#img_modal').attr('src',report_layer.features[i].properties.photo_thumb);
+      $('#message_modal').html(report_layer.features[i].properties.message);
+      $('#name_modal').html('Name : '+report_layer.features[i].properties.name);
+      $('#date_modal').html('Date : '+report_layer.features[i].properties.incident_time);
+
+    }
+  }
+
+});
+
+createReportList(report_layer);
+var previousFilterLayer;
+
+$("#btn_filter").on('click', function() {
+
+    var siteListArray = jQuery.extend(true, {}, report_layer);
+
+    var wardValue = [];
+    if($('#ward_filter').val()!=""){
+      wardValue.push($('#ward_filter').val());
+    }
+
+    var incidentValue = [];
+    if($('#incident_filter').val()!=""){
+      incidentValue.push($('#incident_filter').val());
+    }
+    var statusValue = [];
+    if($('#status_filter').val()!=""){
+      statusValue.push($('#status_filter').val());
+    }
+
+    var fromDate = $('#datepicker').val();
+    var toDate = $('#datepicker1').val();
+
+// console.log(wardValue);
+// console.log(incidentValue);
+// console.log(statusValue);
+// console.log("to"+toDate);
+// console.log("from"+fromDate);
+  applyFilter(siteListArray, wardValue, incidentValue, statusValue, fromDate, toDate);
+//  console.log(siteListArray);
+
+///MAPS Filter
+if(map.hasLayer(report_map)){console.log('mapfilter');
+  map.removeLayer(report_map);
+}
+
+console.log(previousFilterLayer);
+if(map.hasLayer(previousFilterLayer)){console.log('reportmapfilter');
+  map.removeLayer(previousFilterLayer);
+}
+
+
+report_map_filter = new L.GeoJSON(siteListArray, {
+  pointToLayer: function(feature, latlng) {
+
+
+    if(feature.properties.incident_type=='Fire'){
+
+   icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+    }else if(feature.properties.incident_type=='Landslide'){
+
+      icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+    }else if(feature.properties.incident_type=='Fire'){
+
+      icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+    }else if(feature.properties.incident_type=='Lightning'){
+
+      icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+    }else if(feature.properties.incident_type=='Waste'){
+
+      icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+    }else if(feature.properties.incident_type=='Road'){
+
+      icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+
+    }else if(feature.properties.incident_type=='Others'){
+
+      icon_url='https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon.png';
+    }
+    icons = L.icon({
+      //iconSize: [27, 27],
+      iconAnchor: [13, 27],
+      popupAnchor:  [2, -24],
+      iconUrl: icon_url
+    });
+    //console.log(icon.options);
+    var marker = L.marker(latlng, {icon: icons});
+    return marker;
+
+  },
+
+  onEachFeature: function(feature, layer) {
+  //  console.log(feature.properties.incident_type);
+    layer.bindPopup(feature.properties.incident_type);
+    //feature.properties.layer_name = "transit_stops";
+
+  }
+});
+console.log('layer_removed');
+
+report_map_filter.addTo(map);
+previousFilterLayer=report_map_filter;
+createChartData(siteListArray);
+
+
+//console.log(siteListArray.feature.length)
+//right-panel1
+createReportList(siteListArray);
+//right panel end
+
+
+
+
+
+//end
+
+});
+//FILTER DUNCTION END
+
 
 
 
     //start chart
-    chart_dataa='<?php echo $bar_ward ?>'
-    chart_data=(JSON.parse(chart_dataa));
 
-    chart_dataa1='<?php echo $bar_cat ?>'
-    chart_data1=(JSON.parse(chart_dataa1));
 
-    chart_dataa2='<?php echo $bar_stat ?>'
-    chart_data2=(JSON.parse(chart_dataa2));
-    console.log(chart_data2);
     // chart_data=[
     //          {"name": "1", "value": 201 },
     //          {"name": "2", "value": 20 },
@@ -1123,14 +1255,14 @@ $(document).ready(function(){
         top: 5,
         right: 10,
         bottom: 5,
-        left: 70
+        left: 50
       };
 
       var width = 120 - margin.left - margin.right,
       height = hig - margin.top - margin.bottom;
 
       var svg = d3.select("#"+bar_id).append("svg")
-      .attr("width", width + margin.left + margin.right + 110)
+      .attr("width", "inherit")//width + margin.left + margin.right + 110)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .style("margin-top", "30px")
@@ -1207,12 +1339,96 @@ $(document).ready(function(){
       });
 
     }
-    bar_id="graphic";
-    bar_idd="graphic1";
-    bar_iddd="graphic2";
-    CreateChart(chart_data, bar_id);
-    CreateChart(chart_data1, bar_idd);
-    CreateChart(chart_data2, bar_iddd);
+
+    function createChartData(report_geojson){
+        var count_ward =0;
+        var count_cat =0;
+        var count_status =0;
+        chart_data_ward=[
+                 {"name": "1", "value": 0 },
+                 {"name": "2", "value": 0 },
+                 {"name": "3", "value": 0 },
+                 {"name": "4", "value": 0 },
+                 {"name": "5", "value": 0 },
+                 {"name": "6", "value": 0 },
+                 {"name": "7", "value": 0 },
+                 {"name": "8", "value": 0 },
+                 {"name": "9", "value": 0 }
+                 ];
+
+             chart_data_category=[
+                          {"name": "Flood", "value": 0 },
+                          {"name": "Fire", "value": 0 },
+                          {"name": "Landslide", "value": 0 },
+                          {"name": "Lightening", "value": 0 },
+                          {"name": "Waste", "value": 0 },
+                          {"name": "Road", "value": 0 },
+                          {"name": "Others", "value": 0 },
+
+                          ];
+
+             chart_data_status=[
+                          {"name": "pending", "value": 0 },
+                          {"name": "ongoing", "value": 0 },
+                          {"name": "completed", "value": 0 },
+
+
+                          ];
+
+        for(var i=0;i<report_geojson.features.length;i++){
+          //console.log(chart_data_ward.length);
+          for(var j=0;j<chart_data_ward.length;j++){
+            //console.log(report_geojson.features[i].properties.ward);
+            //console.log(i);
+            //console.log(j);
+
+            if(report_geojson.features[i].properties.ward == j+1){
+              //console.log('enterede');
+
+                  chart_data_ward[j]['value']=chart_data_ward[j]['value']+1;
+            }
+
+          }
+          for(var j=0;j<chart_data_category.length;j++){
+            if(report_geojson.features[i].properties.incident_type == chart_data_category[j]['name']){
+              //console.log('enterede');
+
+                  chart_data_category[j]['value']=chart_data_category[j]['value']+1;
+            }
+          }
+          for(var j=0;j<chart_data_status.length;j++){
+            if(report_geojson.features[i].properties.status == chart_data_status[j]['name']){
+              //console.log('enterede');
+
+                  chart_data_status[j]['value']=chart_data_status[j]['value']+1;
+            }
+          }
+          //  console.log(chart_data_status);
+
+        }
+      // chart_dataa='<?php echo $bar_ward ?>'
+      // chart_data=(JSON.parse(chart_dataa));
+      //
+      // chart_dataa1='<?php echo $bar_cat ?>'
+      // chart_data1=(JSON.parse(chart_dataa1));
+      //
+      // chart_dataa2='<?php echo $bar_stat ?>'
+      // chart_data2=(JSON.parse(chart_dataa2));
+      // console.log(chart_data2);
+
+$('#graphic').html('');
+$('#graphic1').html('');
+$('#graphic2').html('');
+      bar_id="graphic";
+      bar_idd="graphic1";
+      bar_iddd="graphic2";
+      CreateChart(chart_data_ward, bar_id);
+      CreateChart(chart_data_category, bar_idd);
+      CreateChart(chart_data_status, bar_iddd);
+    }
+
+createChartData(report_layer);
+
     //chart end
 
 

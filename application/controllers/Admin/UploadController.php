@@ -158,14 +158,19 @@ class UploadController extends CI_Controller
 
   public function  emergency_contact(){
 
-   $this->session->set_userdata('emerg_language','en');
+// var_dump($this->session->userdata('Language'));
+// die;
+
+
+  // $this->session->set_userdata('emerg_language','en');
 
     $cat=$this->input->get('cat');
     // var_dump($cat);
     $name=$this->input->get('name');
 
+    $emerg_lang=$this->session->userdata('Language');
 
-    $this->body['data']=$this->Upload_model->get_emergency_con($cat);
+    $this->body['data']=$this->Upload_model->get_emergency_con($cat,$emerg_lang);
     $this->body['cat']=$cat;
     $this->body['name']=$name;
 //var_dump($this->body['data']);
@@ -363,8 +368,8 @@ $this->body['admin']=$admin_type;
   public function emergency_personnel()
   {
 
-
- $this->session->set_userdata('emerg_language','en');
+$emerg_per_lang=$this->session->userdata('Language');
+ //$this->session->set_userdata('emerg_language','en');
 
     $cat=$this->input->get('cat');
 
@@ -415,7 +420,7 @@ $this->body['admin']=$admin_type;
 
     }else{
 
-      $this->body['data']=$this->Upload_model->get_emergency_per($cat);
+      $this->body['data']=$this->Upload_model->get_emergency_per($cat,$emerg_per_lang);
       $this->body['cat']=$cat;
       $name=$this->input->get('name');
       $this->body['name']=$name;
@@ -735,7 +740,7 @@ public function emergency_personnel_nep(){
 
 $table_name = $this->input->get('tbl');
 $cat= $this->input->get('cat');
-$lang= $this->input->get('lang');
+$lang= $this->session->userdata('Language');
 if (isset($_POST['submit'])) {
 
 $max_id=$this->Table_model->get_max_id($table_name);
