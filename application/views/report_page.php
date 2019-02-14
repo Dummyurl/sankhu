@@ -839,7 +839,7 @@ $(document).ready(function(){
       $(".panel.panel-success").toggle(1000);
       $(".layer-toggle i").toggleClass("fa-chevron-right");
     });
-    var sankhu = new L.geoJson.ajax("http://changu.dimpnepal.org/geojson/Changunarayan.geojson", {
+    var sankhu = new L.geoJson.ajax("http://sankhu.dimpnepal.org/geojson/Changunarayan.geojson", {
 
       onEachFeature: function(feature,layer){
 
